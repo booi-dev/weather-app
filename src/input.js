@@ -4,13 +4,24 @@ import './input.css'
 function input() {
 
     const inputField = document.querySelector('.input-field')
+    const submitBtn = document.querySelector('.submit-btn')
     const geoSuggestionEl = document.querySelector('.geo-suggestions')
+
+    const removeHtmlTags = function (element) {
+        return element.replace(/(<([^>]+)>)/ig, '')
+    }
+
+    const removeAllSuggestion = function () {
+        let suggestionsEl = document.querySelector('.geo-suggestions');
+        suggestionsEl.replaceChildren()
+    }
 
     const removeSuggestionEl = function (val) {
         let suggestionsEl = document.querySelector('.geo-suggestions');
         let locations = document.querySelectorAll('.location-name');
         locations.forEach(suggestion => {
-            let text = suggestion.innerHTML.replace(/(<([^>]+)>)/ig, '')
+            let text = removeHtmlTags(suggestion.innerHTML)
+            // suggestion.innerHTML.replace(/(<([^>]+)>)/ig, '')
             if (!(text.toLowerCase().includes(val.toLowerCase()))) {
                 suggestion.parentElement.remove()
             }
@@ -18,6 +29,14 @@ function input() {
         if (locations.length > 6) {
             suggestionsEl.removeChild(suggestionsEl.lastChild)
         }
+    }
+
+    const handleLocationClickEvent = function (e) {
+        let locationName = removeHtmlTags(e.target.innerHTML)
+        console.log(locationName)
+        inputField.value = locationName;
+        removeAllSuggestion()
+        submitBtn.classList.remove('hidden')
     }
 
     const createSuggestionEl = function name(val, geoSuggestion) {
@@ -28,7 +47,10 @@ function input() {
         location.innerHTML = '<strong>' + geoSuggestion.name.substr(0, val.length) + '</strong>';
         location.innerHTML += geoSuggestion.name.substr(val.length);
 
+        location.addEventListener('click', handleLocationClickEvent)
+
         let country = document.createElement('div');
+        country.classList.add('country')
         country.innerText = geoSuggestion.country
 
         suggestion.append(location, country)
