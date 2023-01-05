@@ -4,25 +4,26 @@ import './app.css'
 
 function app() {
 
-    // input()
+    const submitBtn = document.querySelector('.submit-btn');
+    const form = document.querySelector('.form');
 
-    let geo = 'delhi';
-    let limit = 3;
-    let metric = 'imperial'
+    let unit = 'metric'
 
-    const getWeather = async function (params) {
-        let geoULR = getGeoCoordURL(geo, limit)
-        let coords = await getGeoCoords(geoULR)
-        let forcastURL = getForcastURL(coords, metric)
+    const getWeather = async function (e) {
+        e.preventDefault()
+        const inputField = document.querySelector('.input-field');
+
+        let coords = {
+            lat: inputField.dataset.lat,
+            lon: inputField.dataset.lon
+        }
+
+        let forcastURL = getForcastURL(coords, unit)
         let forcast = await getForcast(forcastURL)
-        // console.log(geoULR)
-        // console.log(coords)
-        // console.log(forcastURL)
-        // console.log(forcast)
+        console.log(forcast)
     }
 
-    // getWeather()
-
+    form.addEventListener('submit', getWeather)
 }
 
 export default app;
