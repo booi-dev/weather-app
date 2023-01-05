@@ -1,8 +1,7 @@
 import { getGeoCoordURL, getGeoCoords } from './fetch'
 import './input.css'
 
-function input() {
-
+(function input() {
     const inputField = document.querySelector('.input-field')
     const submitBtn = document.querySelector('.submit-btn')
     const geoSuggestionEl = document.querySelector('.geo-suggestions')
@@ -21,7 +20,6 @@ function input() {
         let locations = document.querySelectorAll('.location-name');
         locations.forEach(suggestion => {
             let text = removeHtmlTags(suggestion.innerHTML)
-            // suggestion.innerHTML.replace(/(<([^>]+)>)/ig, '')
             if (!(text.toLowerCase().includes(val.toLowerCase()))) {
                 suggestion.parentElement.remove()
             }
@@ -31,10 +29,12 @@ function input() {
         }
     }
 
-    const handleLocationClickEvent = function (e) {
-        let locationName = removeHtmlTags(e.target.innerHTML)
-        console.log(locationName)
-        inputField.value = locationName;
+    const updateInputDataValues = function (locationId) {
+        let locationEl = document.getElementById(locationId)
+        // console.log(locationEl.dataset.lat)
+        // console.log(locationEl.dataset.lon)
+        inputField.dataset.lat = locationEl.dataset.lat;
+        inputField.dataset.lon = locationEl.dataset.lon;
         removeAllSuggestion()
         submitBtn.classList.remove('hidden')
     }
@@ -43,11 +43,20 @@ function input() {
         let suggestion = document.createElement('div');
         suggestion.classList.add('suggestion-el')
         let location = document.createElement('div');
+        let locationId = `country${geoSuggestion.lat + geoSuggestion.lon}`
+        location.setAttribute('id', locationId)
+        location.setAttribute('data-lat', geoSuggestion.lat)
+        location.setAttribute('data-lon', geoSuggestion.lon)
+
         location.classList.add('location-name')
         location.innerHTML = '<strong>' + geoSuggestion.name.substr(0, val.length) + '</strong>';
         location.innerHTML += geoSuggestion.name.substr(val.length);
 
-        location.addEventListener('click', handleLocationClickEvent)
+        location.addEventListener('click', (e) => {
+            let locationName = removeHtmlTags(e.target.innerHTML)
+            inputField.value = locationName;
+            updateInputDataValues(locationId)
+        })
 
         let country = document.createElement('div');
         country.classList.add('country')
@@ -76,7 +85,4 @@ function input() {
     }
 
     inputField.addEventListener('input', handleInput)
-
-}
-
-export default input;
+})()

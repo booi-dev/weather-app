@@ -16,9 +16,7 @@ const getGeoCoords = async function (url) {
     try {
         const response = await fetch(url);
         const cityData = await response.json();
-        const { ...data } = cityData;
-        // coordinate = data[0];
-        // console.log(data)
+        // console.log(cityData)
         return cityData;
     } catch (error) {
         console.log(error)
