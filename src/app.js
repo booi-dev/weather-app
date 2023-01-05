@@ -1,24 +1,8 @@
+
 import { getGeoCoordURL, getForcastURL, getGeoCoords, getForcast } from './fetch'
 import input from './input'
 
 function app() {
-
-    let clientGeoLocation;
-
-    const successCallback = (position) => {
-        clientGeoLocation = position;
-        // console.log(position);
-    };
-
-    const errorCallback = (error) => {
-        console.log(error);
-    };
-
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-
-    if (navigator.geolocation) {
-        console.log(clientGeoLocation)
-    }
 
 
     input()
@@ -39,7 +23,7 @@ function app() {
         // console.log(forcast)
     }
 
-    getWeather()
+    // getWeather()
 
 }
 

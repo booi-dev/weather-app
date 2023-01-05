@@ -1,3 +1,4 @@
+
 // function fetch() {
 
 const API_KEY = 'c613a13b184358c24caf13e21b9f03f0'
@@ -11,14 +12,14 @@ const getForcastURL = function (coords, unit) {
 }
 
 const getGeoCoords = async function (url) {
-    let coordinate;
+    // let coordinate;
     try {
         const response = await fetch(url);
         const cityData = await response.json();
         const { ...data } = cityData;
-        coordinate = data[0];
+        // coordinate = data[0];
         // console.log(data)
-        return coordinate
+        return cityData;
     } catch (error) {
         console.log(error)
     }
@@ -37,6 +38,8 @@ const getForcast = async function (url) {
     } catch (error) {
         console.log(error)
     }
+
+
 }
 
 // standard = kelvin
