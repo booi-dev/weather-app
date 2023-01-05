@@ -1,12 +1,11 @@
-
 import { getGeoCoordURL, getForcastURL, getGeoCoords, getForcast } from './fetch'
 import input from './input'
+import './app.css'
 
 function app() {
 
 
     input()
-
 
     let geo = 'delhi';
     let limit = 3;

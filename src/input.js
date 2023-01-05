@@ -1,33 +1,38 @@
 import { getGeoCoordURL, getGeoCoords } from './fetch'
+import './input.css'
 
 function input() {
 
     const inputField = document.querySelector('.input-field')
     const geoSuggestionEl = document.querySelector('.geo-suggestions')
-    // console.log(inputField)
-
 
     const removeSuggestionEl = function (val) {
-        let suggestions = document.querySelector('.geo-suggestions')
-        suggestions.childNodes.forEach(suggestion => {
+        let suggestionsEl = document.querySelector('.geo-suggestions');
+        let locations = document.querySelectorAll('.location-name');
+
+        console.log(locations)
+        locations.forEach(suggestion => {
             let text = suggestion.innerHTML.replace(/(<([^>]+)>)/ig, '')
             if (!(text.toLowerCase().includes(val.toLowerCase()))) {
-                console.log(suggestion)
                 suggestion.remove()
             }
         });
-        console.log(suggestions.childElementCount)
-        if (suggestions.childElementCount > 6) {
-            suggestions.removeChild(suggestions.lastChild)
+        if (locations.length > 6) {
+            suggestionsEl.removeChild(suggestionsEl.lastChild)
         }
     }
 
     const createSuggestionEl = function name(val, geoSuggestion) {
-        let suggestion = document.createElement('div')
-        suggestion.classList.add()
-        // console.log(geoSuggestion.name)
-        suggestion.innerHTML = '<strong>' + geoSuggestion.name.substr(0, val.length) + '</strong>'
-        suggestion.innerHTML += geoSuggestion.name.substr(val.length)
+        let suggestion = document.createElement('div');
+        let location = document.createElement('div');
+        location.classList.add('location-name')
+        location.innerHTML = '<strong>' + geoSuggestion.name.substr(0, val.length) + '</strong>';
+        location.innerHTML += geoSuggestion.name.substr(val.length);
+
+        let country = document.createElement('div');
+        country.innerText = geoSuggestion.country
+
+        suggestion.append(location, country)
         geoSuggestionEl.prepend(suggestion)
     }
 
@@ -46,7 +51,6 @@ function input() {
         let val = e.target.value
         let urls = getGeoCoordURL(val, limit)
         let coords = await getGeoCoords(urls)
-        // console.log(coords)
         inputAutoComplete(val, coords)
     }
 
