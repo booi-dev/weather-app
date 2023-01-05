@@ -1,4 +1,5 @@
 import { getGeoCoordURL, getForcastURL, getGeoCoords, getForcast } from './fetch'
+import input from './input'
 
 function app() {
 
@@ -18,6 +19,9 @@ function app() {
     if (navigator.geolocation) {
         console.log(clientGeoLocation)
     }
+
+
+    input()
 
 
     let geo = 'delhi';
