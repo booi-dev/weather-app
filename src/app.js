@@ -1,29 +1,45 @@
-import { getGeoCoordURL, getForcastURL, getGeoCoords, getForcast } from './fetch'
+import getClientLocation from "./clientLocation";
+import * as fetch from './fetch'
+import * as DOMupdate from './DOMupdate'
 import './input'
 import './app.css'
 
 function app() {
 
-    const submitBtn = document.querySelector('.submit-btn');
     const form = document.querySelector('.form');
 
     let unit = 'metric'
 
-    const getWeather = async function (e) {
-        e.preventDefault()
-        const inputField = document.querySelector('.input-field');
+    // DOMupdate.updateTodayData()
 
+    const clientLocation = async function () {
+        let clientGeo = await getClientLocation;
+        console.log(clientGeo)
         let coords = {
-            lat: inputField.dataset.lat,
-            lon: inputField.dataset.lon
+            lat: clientGeo.coords.latitude,
+            lon: clientGeo.coords.longitude
         }
 
-        let forcastURL = getForcastURL(coords, unit)
-        let forcast = await getForcast(forcastURL)
-        console.log(forcast)
+        let forcastURL = fetch.getForcastURL(coords, unit)
+        let forcast = await fetch.getForcast(forcastURL)
+
+        DOMupdate.updateTodayData(forcast)
     }
 
-    form.addEventListener('submit', getWeather)
+    clientLocation()
+
+    const getForcastThroughInput = async function (params) {
+        let forcast = await fetch.getWeather(unit)
+        DOMupdate.updateTodayData(forcast)
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        getForcastThroughInput()
+
+        // DOMupdate.updateTodayData(locationName, locationTemp)
+    })
+
 }
 
 export default app;

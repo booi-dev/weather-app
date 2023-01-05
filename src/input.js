@@ -15,6 +15,10 @@ import './input.css'
         suggestionsEl.replaceChildren()
     }
 
+    // const removeSuggestionSamePair = function (params) {
+
+    // }
+
     const removeSuggestionEl = function (val) {
         let suggestionsEl = document.querySelector('.geo-suggestions');
         let locations = document.querySelectorAll('.location-name');
@@ -24,7 +28,7 @@ import './input.css'
                 suggestion.parentElement.remove()
             }
         });
-        if (locations.length > 6) {
+        if (locations.length > 10) {
             suggestionsEl.removeChild(suggestionsEl.lastChild)
         }
     }
@@ -58,11 +62,11 @@ import './input.css'
             updateInputDataValues(locationId)
         })
 
-        let country = document.createElement('div');
-        country.classList.add('country')
-        country.innerText = geoSuggestion.country
+        let state = document.createElement('div');
+        state.classList.add('state')
+        state.innerText = `${geoSuggestion.country}, ${geoSuggestion.state}`
 
-        suggestion.append(location, country)
+        suggestion.append(location, state)
         geoSuggestionEl.prepend(suggestion)
     }
 
@@ -77,7 +81,7 @@ import './input.css'
     }
 
     const handleInput = async function (e) {
-        let limit = 5;
+        let limit = 10;
         let val = e.target.value
         let urls = getGeoCoordURL(val, limit)
         let coords = await getGeoCoords(urls)

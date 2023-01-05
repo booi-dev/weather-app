@@ -36,8 +36,19 @@ const getForcast = async function (url) {
     } catch (error) {
         console.log(error)
     }
+}
 
-
+const getWeather = async function (unit) {
+    console.log("getting weather")
+    const inputField = document.querySelector('.input-field');
+    let coords = {
+        lat: inputField.dataset.lat,
+        lon: inputField.dataset.lon
+    }
+    let forcastURL = getForcastURL(coords, unit)
+    let forcast = await getForcast(forcastURL)
+    console.log(forcast)
+    return forcast;
 }
 
 // standard = kelvin
@@ -53,4 +64,4 @@ const getForcast = async function (url) {
 
 // }
 
-export { getGeoCoordURL, getForcastURL, getGeoCoords, getForcast }
+export { getGeoCoordURL, getForcastURL, getGeoCoords, getForcast, getWeather }
