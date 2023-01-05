@@ -9,12 +9,10 @@ function input() {
     const removeSuggestionEl = function (val) {
         let suggestionsEl = document.querySelector('.geo-suggestions');
         let locations = document.querySelectorAll('.location-name');
-
-        console.log(locations)
         locations.forEach(suggestion => {
             let text = suggestion.innerHTML.replace(/(<([^>]+)>)/ig, '')
             if (!(text.toLowerCase().includes(val.toLowerCase()))) {
-                suggestion.remove()
+                suggestion.parentElement.remove()
             }
         });
         if (locations.length > 6) {
@@ -24,6 +22,7 @@ function input() {
 
     const createSuggestionEl = function name(val, geoSuggestion) {
         let suggestion = document.createElement('div');
+        suggestion.classList.add('suggestion-el')
         let location = document.createElement('div');
         location.classList.add('location-name')
         location.innerHTML = '<strong>' + geoSuggestion.name.substr(0, val.length) + '</strong>';
