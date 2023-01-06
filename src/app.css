@@ -37,9 +37,9 @@ body {
 }
 
 .app {
-  width: 34em;
-  height: 35em;
-  padding-inline: 1em;
+  /* width: 34em; */
+  /* height: 35em; */
+  padding: 1em;
   margin-inline: 0.5em;
   border-radius: var(--br-radius);
   background-color: var(--main-1);
@@ -47,9 +47,10 @@ body {
 
 .site-name {
   padding: 0.5em;
-  margin-block: 0.5em;
+  margin-bottom: 0.5em;
   background: var(--bg-wht-1);
   border-radius: var(--br-radius);
+  font-size: var(--fs-large);
 }
 
 .main-data {
@@ -59,7 +60,7 @@ body {
   gap: 1em;
 }
 
-.main-data * {
+.main-data > * {
   border-radius: var(--br-radius);
 }
 
@@ -71,6 +72,7 @@ body {
 
 .location--main {
   font-size: var(--fs-xmedium);
+  word-spacing: -0.6em;
 }
 
 .date--main,
@@ -118,7 +120,7 @@ body {
   border: none;
   border-radius: var(--br-radius);
 
-  background: transparent;
+  background: var(--bg-blk-1);
   font-family: inherit;
   font-size: var(--fs-medium);
   text-align: center;
@@ -131,7 +133,38 @@ body {
 .input-field:hover,
 .input-field:focus {
   border-radius: var(--br-radius);
-  background-color: var(--bg-blk-1);
-  color: #e1e1e1;
+  background-color: var(--bg-wht-1);
   outline: none;
+}
+
+::placeholder {
+  color: black;
+}
+
+.additional-data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.additional-data > * {
+  flex: 1;
+  background-color: var(--bg-wht-1);
+  border-radius: var(--br-radius);
+  padding: 1em;
+  text-align: right;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.additional-data .lable--ad {
+  font-size: var(--fs-medium);
+  opacity: 0.8;
+}
+
+.additional-data .data--ad {
+  font-size: var(--fs-xmedium);
+  margin-top: auto;
 }

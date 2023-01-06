@@ -9,7 +9,9 @@ let currentYear = format(date, 'yyyy')
 let formatedDate = `${currentDay}, ${currentDate}, ${currentMonth}, ${currentYear}`
 let currentTIme = date.toLocaleTimeString()
 
-function updateMainData(location, forcast, unit, cityName) {
+function updateMainData(location, forcast, unit, cityName = "--") {
+    console.log(cityName)
+
     let unitSymbol;
 
     if (unit === 'metric') {
@@ -32,13 +34,13 @@ function updateMainData(location, forcast, unit, cityName) {
     let mainTime = document.querySelector('.time--main')
 
     let mainCityName = document.querySelector('.city-name--main')
-    if (condition) mainCityName = cityName;
     let mainTemp = document.querySelector('.temp--main')
     let feelsLike = document.querySelector('.feels-like--main')
 
     mainLocation.innerText = locationName;
     mainDate.innerText = formatedDate;
     mainTime.innerText = currentTIme;
+    mainCityName.innerText = cityName;
     mainTemp.innerText = locationTemp;
     feelsLike.innerText = feelstemp;
 }

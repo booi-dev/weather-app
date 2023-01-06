@@ -3,6 +3,7 @@ import * as fetch from './fetch'
 import * as DOMupdate from './DOMupdate'
 import './input'
 import './app.css'
+import './icons.css'
 
 function app() {
 
