@@ -40,7 +40,7 @@ import './input.css'
     const clearInputNDisableSubmit = function () {
         inputField.value = '';
         submitBtn.disabled = true;
-        submitBtn.classList.add('x')
+        submitBtn.classList.remove('sub')
     }
 
     ////
@@ -91,7 +91,7 @@ import './input.css'
             inputField.value = locationName;
             updateInputDataValues(locationId)
             submitBtn.disabled = false;
-            submitBtn.classList.remove('x')
+            submitBtn.classList.add('sub')
             form.addEventListener('submit', addFormEventListener)
         })
 

@@ -7,7 +7,7 @@ import './icons.css'
 
 function app() {
 
-    // DOMupdate.updateTodayData()
+    let unit = 'metric'
 
     const clientLocation = async function () {
         let clientGeo = await getClientLocation;
@@ -17,7 +17,7 @@ function app() {
         }
 
         let forcast = await fetch.getWeather(coords, unit)
-        DOMupdate.updateMainData(forcast.locations, forcast.forcast, forcast.unit)
+        DOMupdate.updateMainData(forcast.locations, forcast.forcast, forcast.unit, forcast.forcast.name)
     }
 
     clientLocation()

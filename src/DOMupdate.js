@@ -10,7 +10,6 @@ let formatedDate = `${currentDay}, ${currentDate}, ${currentMonth}, ${currentYea
 let currentTIme = date.toLocaleTimeString()
 
 function updateMainData(location, forcast, unit, cityName = "--") {
-    console.log(cityName)
 
     let unitSymbol;
 
@@ -37,12 +36,22 @@ function updateMainData(location, forcast, unit, cityName = "--") {
     let mainTemp = document.querySelector('.temp--main')
     let feelsLike = document.querySelector('.feels-like--main')
 
+    let condition = document.querySelector('.condition.data--ad')
+    let humidity = document.querySelector('.humidity.data--ad')
+    let windspeed = document.querySelector('.windspeed.data--ad')
+
     mainLocation.innerText = locationName;
     mainDate.innerText = formatedDate;
     mainTime.innerText = currentTIme;
+
     mainCityName.innerText = cityName.toUpperCase();
     mainTemp.innerText = locationTemp;
     feelsLike.innerText = feelstemp;
+
+    condition.innerText = forcast.weather.main;
+    humidity.innerText = forcast.main.humidity;
+    windspeed.innerText = forcast.windspeed;
+
 }
 
 export {

@@ -1,6 +1,5 @@
-.uil-location-point {
-  translate: 20px 2px;
-  font-size: var(--fs-large);
+.locaion-icon {
+  translate: 0 4px;
 }
 
 .enter-icon {
