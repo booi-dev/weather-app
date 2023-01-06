@@ -31,8 +31,9 @@ function app() {
             lat: inputField.dataset.lat,
             lon: inputField.dataset.lon
         }
+        let cityName = inputField.value;
         let forcast = await fetch.getWeather(coords, unit)
-        DOMupdate.updateMainData(forcast.locations, forcast.forcast, forcast.unit)
+        DOMupdate.updateMainData(forcast.locations, forcast.forcast, forcast.unit, cityName)
     }
 
     form.addEventListener('submit', (e) => {

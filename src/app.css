@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --main-1: #f6880b;
+
+  --bg-blk-1: #00000036;
+  --bg-blk-2: #00000062;
+
+  --bg-wht-1: #ffffff27;
+
+  --fs-xlarge: 2.5em;
+  --fs-large: 2em;
+  --fs-xmedium: 1.5em;
+  --fs-medium: 1.2em;
+  --fs-small: 1em;
+
+  --br-radius: 5px;
+}
+
+body {
+  font-family: "Inconsolata", monospace;
+  letter-spacing: 0.1em;
+  background-color: rgba(5, 107, 12, 0.655);
+}
+
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.app {
+  width: 34em;
+  height: 35em;
+  padding-inline: 1em;
+  margin-inline: 0.5em;
+  border-radius: var(--br-radius);
+  background-color: var(--main-1);
+}
+
+.site-name {
+  padding: 0.5em;
+  margin-block: 0.5em;
+  background: var(--bg-wht-1);
+  border-radius: var(--br-radius);
+}
+
+.main-data {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.main-data * {
+  border-radius: var(--br-radius);
+}
+
+.location-detail--main {
+  background-color: var(--bg-wht-1);
+  padding: 1em;
+  flex: 2 1 5em;
+}
+
+.location--main {
+  font-size: var(--fs-xmedium);
+}
+
+.date--main,
+.time--main {
+  opacity: 0.8;
+}
+
+.temp-detail--main {
+  flex: 1;
+  background-color: var(--bg-wht-1);
+  padding: 1em;
+  text-align: right;
+}
+
+.city-name--main {
+  font-size: var(--fs-medium);
+  opacity: 0.8;
+}
+
+.temp--main {
+  font-size: var(--fs-xlarge);
+}
+
+.temp--main,
+.feels-like--main {
+  word-spacing: -0.6em;
+}
+
+.feels-like--main {
+  opacity: 0.8;
+}
+
+.input-el {
+  display: grid;
+  place-items: center;
+  margin-block: 1em;
+  background-color: var(--bg-wht-1);
+  padding-block: 1em;
+  border-radius: var(--br-radius);
+}
+
+.input-field {
+  width: 60%;
+  height: 2em;
+  border: none;
+  border-radius: var(--br-radius);
+
+  background: transparent;
+  font-family: inherit;
+  font-size: var(--fs-medium);
+  text-align: center;
+
+  transition: background-color, color;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+}
+
+.input-field:hover,
+.input-field:focus {
+  border-radius: var(--br-radius);
+  background-color: var(--bg-blk-1);
+  color: #e1e1e1;
+  outline: none;
+}

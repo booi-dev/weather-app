@@ -5,11 +5,11 @@ let currentDay = format(date, 'EEEE')
 let currentDate = getDate(date)
 let currentMonth = format(date, 'MMMM')
 let currentYear = format(date, 'yyyy')
-let dayState = format(date, 'B')
 
 let formatedDate = `${currentDay}, ${currentDate}, ${currentMonth}, ${currentYear}`
+let currentTIme = date.toLocaleTimeString()
 
-function updateMainData(location, forcast, unit) {
+function updateMainData(location, forcast, unit, cityName) {
     let unitSymbol;
 
     if (unit === 'metric') {
@@ -20,23 +20,25 @@ function updateMainData(location, forcast, unit) {
         unitSymbol = 'K'
     }
 
-    // let locationName = `${forcast.name}, ${location.state}, ${location.country}`
-
     let locationName = `${forcast.name},`
     if (location.state) locationName += ` ${location.state},`;
     locationName += ` ${location.country}`;
 
-    let locationTemp = `${forcast.main.temp} ${unitSymbol}`;
-    let feelstemp = `${forcast.main.feels_like} ${unitSymbol}`;
+    let locationTemp = `${forcast.main.temp}${unitSymbol}`;
+    let feelstemp = `feels: ${forcast.main.feels_like}${unitSymbol}`;
 
-    let mainLocation = document.querySelector('.location')
-    let mainDate = document.querySelector('.date')
-    let mainTime = document.querySelector('.time')
+    let mainLocation = document.querySelector('.location--main')
+    let mainDate = document.querySelector('.date--main')
+    let mainTime = document.querySelector('.time--main')
+
+    let mainCityName = document.querySelector('.city-name--main')
+    if (condition) mainCityName = cityName;
     let mainTemp = document.querySelector('.temp--main')
     let feelsLike = document.querySelector('.feels-like--main')
 
     mainLocation.innerText = locationName;
     mainDate.innerText = formatedDate;
+    mainTime.innerText = currentTIme;
     mainTemp.innerText = locationTemp;
     feelsLike.innerText = feelstemp;
 }
