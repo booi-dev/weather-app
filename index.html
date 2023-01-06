@@ -9,12 +9,17 @@
     <title>weather-app</title>
   </head>
   <body>
-    <h1>Nebula</h1>
+    <h1>nebula weather</h1>
     <div class="main-data">
-      <div class="location"></div>
-      <div class="date"></div>
-      <div class="time"></div>
-      <div class="temp"></div>
+      <div class="location-detail--main">
+        <div class="location"></div>
+        <div class="date"></div>
+        <div class="time"></div>
+      </div>
+      <div class="temp-detail--main">
+        <div class="temp--main"></div>
+        <div class="feels-like--main"></div>
+      </div>
     </div>
     <form action="" class="form">
       <div class="input-el">
@@ -25,11 +30,12 @@
           data-lat=""
           data-lon=""
           name="input"
-          placeholder="city name"
+          placeholder="enter city name"
         />
         <button type="submit" class="submit-btn hidden">submit</button>
       </div>
     </form>
+    <div class="additional-data"></div>
     <div class="geo-suggestions"></div>
   </body>
 </html>
