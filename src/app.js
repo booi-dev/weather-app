@@ -24,31 +24,50 @@ function app() {
     // standard = kelvin
     // metric = celcius
     // imperial = farenheit
+
     let unit = 'metric'
 
-    let unitSwitcherBtn = document.querySelector('.switch-btn')
-    let unitSwitcherLabel = document.querySelector('.switch-label')
+    let unitswitcherLabel = document.querySelector('.unit-switch-btn')
+    let switcherBtn = document.querySelector('.switch-btn')
+    let switcherLabel = document.querySelector('.switch-label')
 
-    if (unit === 'metric') {
-        unitSwitcherBtn.innerText = '°F'
-    } if ((unit === 'imperial')) {
-        unitSwitcherBtn.innerText = '°C'
+    const updateSwitchBtn = function (unit) {
+        if (unit === 'metric') {
+            switcherBtn.innerText = '°F'
+        } if ((unit === 'imperial')) {
+            switcherBtn.innerText = '°C'
+        }
+        // console.log("sdhfiuh")
     }
 
-    const showUnitbtn = function (state) {
-        unitSwitcherLabel.classList.remove('hidden')
+    updateSwitchBtn(unit)
+
+    const showUnitbtn = function () {
+        switcherLabel.classList.add('show')
     }
 
-    const hideUnitbtn = function (state) {
-        unitSwitcherLabel.classList.add('hidden')
+    const hideUnitbtn = function () {
+        switcherLabel.classList.remove('show')
     }
 
-    unitSwitcherBtn.addEventListener('mouseover', showUnitbtn)
-    unitSwitcherBtn.addEventListener('mouseleave', hideUnitbtn)
+    unitswitcherLabel.addEventListener('mouseover', showUnitbtn)
+    unitswitcherLabel.addEventListener('mouseleave', hideUnitbtn)
 
-    unitSwitcherLabel.addEventListener('mouseover', showUnitbtn)
-    unitSwitcherLabel.addEventListener('mouseleave', hideUnitbtn)
+    const changeUnit = function () {
+        if (unit === "metric") {
+            unit = "imperial";
+        }
+        if (unit === "imperial") {
+            unit = "metric";
+        }
+        console.log(unit)
+        clientLocation()
+        updateSwitchBtn(unit)
+    }
 
+    unitswitcherLabel.addEventListener('click', changeUnit)
+
+    //
     const clientLocation = async function () {
         let clientGeo = await getClientLocation;
         let coords = {

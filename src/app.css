@@ -8,7 +8,7 @@
 
 :root {
   --main-1: #f6880b;
-  --main-2: #ffffff9d;
+  --main-2: #ffffffd8;
 
   --bg-blk-1: #00000036;
   --bg-blk-2: #00000062;
@@ -98,16 +98,20 @@ body {
   background-color: var(--main-2);
   padding-inline: 0.2em;
   border-radius: var(--br-radius);
-  z-index: 2;
   cursor: pointer;
+  z-index: 2;
 }
 
 .switch-label {
   font-size: var(--fs-small);
+  display: none;
 }
 
-.switch-label.hidden {
-  display: none;
+.switch-label.show {
+  display: block;
+}
+
+.switch-label {
 }
 
 .switch-btn {
@@ -127,7 +131,7 @@ body {
 } */
 
 .temp-detail--main.anim {
-  animation: anim 1.5s;
+  animation: anim 1s;
 }
 
 .city-name--main {
@@ -229,6 +233,7 @@ body {
 
 .suggestion-el:hover {
   background-color: var(--bg-blk-2);
+  border-radius: var(--br-radius);
   color: white;
 }
 

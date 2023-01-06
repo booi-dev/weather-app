@@ -39,7 +39,7 @@ const getForcast = async function (url) {
         forcast.windspeed = weatherData.wind.speed;
         forcast.date = weatherData.dt;
         forcast.timezone = weatherData.timezone;
-        console.log(weatherData)
+        // console.log(weatherData)
         // console.log(forcast)
         return forcast;
     } catch (error) {
@@ -56,7 +56,7 @@ const reverseGeoCoding = async function (url) {
 
 
 const getWeather = async function (coords, unit) {
-    console.log("getting weather")
+    // console.log("getting weather")
 
     let reverseGeoURl = getReverseGeoCodingURL(coords)
     let locations = await reverseGeoCoding(reverseGeoURl)
