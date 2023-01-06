@@ -8,15 +8,20 @@ const getGeoCoordURL = function (city, limit) {
 }
 
 const getForcastURL = function (coords, unit) {
-    return `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${API_KEY}&units=${unit}`
+    return `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&units=${unit}&appid=${API_KEY}`
+
+
+    // return `https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&exclude=minutely&units=${unit}&appid=${API_KEY}`
+}
+
+const getReverseGeoCodingURL = function (coords) {
+    return `http://api.openweathermap.org/geo/1.0/reverse?lat=${coords.lat}&lon=${coords.lon}&limit=1&appid=${API_KEY}`
 }
 
 const getGeoCoords = async function (url) {
-    // let coordinate;
     try {
         const response = await fetch(url);
         const cityData = await response.json();
-        // console.log(cityData)
         return cityData;
     } catch (error) {
         console.log(error)
@@ -30,38 +35,46 @@ const getForcast = async function (url) {
         const weatherData = await response.json();
         forcast.name = weatherData.name;
         forcast.main = weatherData.main;
-        forcast.weather = weatherData.weather;
-        // console.log(weatherData)
+        forcast.weather = weatherData.weather[0];
+        console.log(weatherData)
+        // console.log(weatherData.weather[0])
         return forcast;
     } catch (error) {
         console.log(error)
     }
 }
 
-const getWeather = async function (unit) {
+const reverseGeoCoding = async function (url) {
+    const response = await fetch(url);
+    const geoLocation = await response.json();
+    const location = geoLocation[0]
+    console.log(location)
+    return location;
+}
+
+
+const getWeather = async function (coords, unit) {
     console.log("getting weather")
-    const inputField = document.querySelector('.input-field');
-    let coords = {
-        lat: inputField.dataset.lat,
-        lon: inputField.dataset.lon
-    }
+
+    let reverseGeoURl = getReverseGeoCodingURL(coords)
+    let locations = await reverseGeoCoding(reverseGeoURl)
+
     let forcastURL = getForcastURL(coords, unit)
     let forcast = await getForcast(forcastURL)
-    console.log(forcast)
-    return forcast;
+
+    return { locations, forcast, unit };
 }
 
 // standard = kelvin
 // metric = celcius
 // imperial = farenheit
 
-// buildGeoCoordURL(coordinateURL)
-// let corshfsdh = { lat: 51.5073219, lon: -0.1276474 }
-// let forCastURL = buildForcastURL(corshfsdh, 'imperial')
-// getForcast(forCastURL)
-
-// return { buildGeoCoordURL, buildForcastURL, getGeoCoords, getForcast }
-
-// }
-
-export { getGeoCoordURL, getForcastURL, getGeoCoords, getForcast, getWeather }
+export {
+    getGeoCoordURL,
+    getForcastURL,
+    getReverseGeoCodingURL,
+    getGeoCoords,
+    getForcast,
+    reverseGeoCoding,
+    getWeather
+}

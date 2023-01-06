@@ -9,20 +9,38 @@ let dayState = format(date, 'B')
 
 let formatedDate = `${currentDay}, ${currentDate}, ${currentMonth}, ${currentYear}`
 
-function updateTodayData(forcast) {
-    let locationName = forcast.name;
-    let locationTemp = forcast.main.temp;
+function updateMainData(location, forcast, unit) {
+    let unitSymbol;
+
+    if (unit === 'metric') {
+        unitSymbol = '°C'
+    } if (unit === 'standard') {
+        unitSymbol = '°C'
+    } if (unit === 'imperial') {
+        unitSymbol = 'K'
+    }
+
+    // let locationName = `${forcast.name}, ${location.state}, ${location.country}`
+
+    let locationName = `${forcast.name},`
+    if (location.state) locationName += ` ${location.state},`;
+    locationName += ` ${location.country}`;
+
+    let locationTemp = `${forcast.main.temp} ${unitSymbol}`;
+    let feelstemp = `${forcast.main.feels_like} ${unitSymbol}`;
 
     let mainLocation = document.querySelector('.location')
     let mainDate = document.querySelector('.date')
     let mainTime = document.querySelector('.time')
-    let mainTemp = document.querySelector('.temp')
+    let mainTemp = document.querySelector('.temp--main')
+    let feelsLike = document.querySelector('.feels-like--main')
 
     mainLocation.innerText = locationName;
     mainDate.innerText = formatedDate;
     mainTemp.innerText = locationTemp;
+    feelsLike.innerText = feelstemp;
 }
 
 export {
-    updateTodayData
+    updateMainData
 }

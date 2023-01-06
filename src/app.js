@@ -14,30 +14,30 @@ function app() {
 
     const clientLocation = async function () {
         let clientGeo = await getClientLocation;
-        console.log(clientGeo)
         let coords = {
             lat: clientGeo.coords.latitude,
             lon: clientGeo.coords.longitude
         }
 
-        let forcastURL = fetch.getForcastURL(coords, unit)
-        let forcast = await fetch.getForcast(forcastURL)
-
-        DOMupdate.updateTodayData(forcast)
+        let forcast = await fetch.getWeather(coords, unit)
+        DOMupdate.updateMainData(forcast.locations, forcast.forcast, forcast.unit)
     }
 
     clientLocation()
 
-    const getForcastThroughInput = async function (params) {
-        let forcast = await fetch.getWeather(unit)
-        DOMupdate.updateTodayData(forcast)
+    const getForcastThroughInput = async function () {
+        const inputField = document.querySelector('.input-field');
+        let coords = {
+            lat: inputField.dataset.lat,
+            lon: inputField.dataset.lon
+        }
+        let forcast = await fetch.getWeather(coords, unit)
+        DOMupdate.updateMainData(forcast.locations, forcast.forcast, forcast.unit)
     }
 
     form.addEventListener('submit', (e) => {
         e.preventDefault()
         getForcastThroughInput()
-
-        // DOMupdate.updateTodayData(locationName, locationTemp)
     })
 
 }
