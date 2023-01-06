@@ -37,12 +37,19 @@ import './input.css'
 
     ////
 
+    const clearInputNDisableSubmit = function () {
+        inputField.value = '';
+        submitBtn.disabled = true;
+        submitBtn.classList.add('x')
+    }
+
+    ////
+
     const updateInputDataValues = function (locationId) {
         let locationEl = document.getElementById(locationId)
         inputField.dataset.lat = locationEl.dataset.lat;
         inputField.dataset.lon = locationEl.dataset.lon;
         removeAllSuggestion()
-        submitBtn.classList.remove('x')
     }
 
     ////
@@ -56,14 +63,13 @@ import './input.css'
         let cityName = inputField.value;
         let forcast = await fetch.getWeather(coords, unit)
         DOMupdate.updateMainData(forcast.locations, forcast.forcast, forcast.unit, cityName)
+        clearInputNDisableSubmit()
     }
 
     const addFormEventListener = function name(e) {
         e.preventDefault()
         getForcastThroughInput()
     }
-
-
 
     ////
 
@@ -85,6 +91,7 @@ import './input.css'
             inputField.value = locationName;
             updateInputDataValues(locationId)
             submitBtn.disabled = false;
+            submitBtn.classList.remove('x')
             form.addEventListener('submit', addFormEventListener)
         })
 

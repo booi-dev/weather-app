@@ -136,7 +136,7 @@ body {
   background-image: url("./img/x.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-color: var(--bg-wht-1);
+  background-color: rgba(255, 0, 0, 0.662);
 }
 
 .input-field {
