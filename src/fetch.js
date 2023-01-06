@@ -15,7 +15,7 @@ const getForcastURL = function (coords, unit) {
 }
 
 const getReverseGeoCodingURL = function (coords) {
-    return `http://api.openweathermap.org/geo/1.0/reverse?lat=${coords.lat}&lon=${coords.lon}&limit=1&appid=${API_KEY}`
+    return `https://api.openweathermap.org/geo/1.0/reverse?lat=${coords.lat}&lon=${coords.lon}&limit=1&appid=${API_KEY}`
 }
 
 const getGeoCoords = async function (url) {
