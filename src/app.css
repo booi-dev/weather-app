@@ -15,8 +15,9 @@
 
   --bg-wht-1: #ffffff27;
 
-  --fs-xlarge: 2.5em;
-  --fs-large: 2em;
+  --fs-xlarge: 2.6em;
+  --fs-xlarge: 2.3em;
+  --fs-large: 1.8em;
   --fs-xmedium: 1.5em;
   --fs-medium: 1.2em;
   --fs-small: 1em;
@@ -139,9 +140,6 @@ body {
   background-image: url("./img/enter.png");
   background-position: center;
   background-repeat: no-repeat;
-  /* animation: bubble-up;
-  animation-delay: 1s;
-  animation: forwards; */
 }
 
 .input-field {
@@ -194,7 +192,6 @@ body {
   top: 4em;
   background-color: var(--main-2);
   width: 80%;
-  /* padding: 1em; */
   z-index: 2;
 }
 
@@ -223,14 +220,30 @@ body {
 
 .additional-data .data--ad {
   font-size: var(--fs-xmedium);
-  margin-top: auto;
 }
 
-@keyframes bubble-up {
-  from {
-    scale: 1;
-  }
-  to {
-    scale: 2;
-  }
+.condition--ad {
+  background-image: url("./img/weather.jpg");
+  background-position: center;
+  background-size: cover;
+  color: #e2e2e2;
+  text-shadow: 1px 1px #000000;
 }
+
+.condition-desc.desc--ad {
+  opacity: 0.8;
+}
+
+.humidity--ad {
+  background-image: url("./img/humidity.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.windspeed--ad {
+  background-image: url("./img/wind.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* #00000060 */

@@ -4,8 +4,12 @@ import * as DOMupdate from './DOMupdate'
 import './input'
 import './app.css'
 import './icons.css'
+// import BG_IMG from './img/bg-under-the-cloud.webm'
 
 function app() {
+
+    let bg = document.querySelector('.bg-img')
+
 
     let unit = 'metric'
 

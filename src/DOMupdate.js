@@ -37,6 +37,7 @@ function updateMainData(location, forcast, unit, cityName = "--") {
     let feelsLike = document.querySelector('.feels-like--main')
 
     let condition = document.querySelector('.condition.data--ad')
+    let conditionDesc = document.querySelector('.condition-desc.desc--ad')
     let humidity = document.querySelector('.humidity.data--ad')
     let windspeed = document.querySelector('.windspeed.data--ad')
 
@@ -49,6 +50,7 @@ function updateMainData(location, forcast, unit, cityName = "--") {
     feelsLike.innerText = feelstemp;
 
     condition.innerText = forcast.weather.main;
+    conditionDesc.innerText = forcast.weather.description;
     humidity.innerText = forcast.main.humidity;
     windspeed.innerText = forcast.windspeed;
 
