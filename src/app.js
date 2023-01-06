@@ -7,10 +7,6 @@ import './icons.css'
 
 function app() {
 
-    const form = document.querySelector('.form');
-
-    let unit = 'metric'
-
     // DOMupdate.updateTodayData()
 
     const clientLocation = async function () {
@@ -25,23 +21,6 @@ function app() {
     }
 
     clientLocation()
-
-    const getForcastThroughInput = async function () {
-        const inputField = document.querySelector('.input-field');
-        let coords = {
-            lat: inputField.dataset.lat,
-            lon: inputField.dataset.lon
-        }
-        let cityName = inputField.value;
-        let forcast = await fetch.getWeather(coords, unit)
-        DOMupdate.updateMainData(forcast.locations, forcast.forcast, forcast.unit, cityName)
-    }
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault()
-        getForcastThroughInput()
-    })
-
 }
 
 export default app;

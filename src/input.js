@@ -1,10 +1,16 @@
 import { getGeoCoordURL, getGeoCoords } from './fetch'
+import * as fetch from './fetch'
+import * as DOMupdate from './DOMupdate'
 import './input.css'
 
 (function input() {
+    const form = document.querySelector('.form');
     const inputField = document.querySelector('.input-field')
     const submitBtn = document.querySelector('.submit-btn')
+    submitBtn.disabled = true;
     const geoSuggestionEl = document.querySelector('.geo-suggestions')
+
+    let unit = 'metric'
 
     const removeHtmlTags = function (element) {
         return element.replace(/(<([^>]+)>)/ig, '')
@@ -14,10 +20,6 @@ import './input.css'
         let suggestionsEl = document.querySelector('.geo-suggestions');
         suggestionsEl.replaceChildren()
     }
-
-    // const removeSuggestionSamePair = function (params) {
-
-    // }
 
     const removeSuggestionEl = function (val) {
         let suggestionsEl = document.querySelector('.geo-suggestions');
@@ -33,6 +35,8 @@ import './input.css'
         }
     }
 
+    ////
+
     const updateInputDataValues = function (locationId) {
         let locationEl = document.getElementById(locationId)
         inputField.dataset.lat = locationEl.dataset.lat;
@@ -40,6 +44,28 @@ import './input.css'
         removeAllSuggestion()
         submitBtn.classList.remove('x')
     }
+
+    ////
+
+    const getForcastThroughInput = async function () {
+        const inputField = document.querySelector('.input-field');
+        let coords = {
+            lat: inputField.dataset.lat,
+            lon: inputField.dataset.lon
+        }
+        let cityName = inputField.value;
+        let forcast = await fetch.getWeather(coords, unit)
+        DOMupdate.updateMainData(forcast.locations, forcast.forcast, forcast.unit, cityName)
+    }
+
+    const addFormEventListener = function name(e) {
+        e.preventDefault()
+        getForcastThroughInput()
+    }
+
+
+
+    ////
 
     const createSuggestionEl = function name(val, geoSuggestion) {
         let suggestion = document.createElement('div');
@@ -58,6 +84,8 @@ import './input.css'
             let locationName = removeHtmlTags(e.target.innerHTML)
             inputField.value = locationName;
             updateInputDataValues(locationId)
+            submitBtn.disabled = false;
+            form.addEventListener('submit', addFormEventListener)
         })
 
         let state = document.createElement('div');
