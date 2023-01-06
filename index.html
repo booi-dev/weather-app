@@ -9,33 +9,41 @@
     <title>weather-app</title>
   </head>
   <body>
-    <h1>nebula weather</h1>
-    <div class="main-data">
-      <div class="location-detail--main">
-        <div class="location"></div>
-        <div class="date"></div>
-        <div class="time"></div>
-      </div>
-      <div class="temp-detail--main">
-        <div class="temp--main"></div>
-        <div class="feels-like--main"></div>
+    <div class="main-container">
+      <div class="app">
+        <h1 class="site-name">NEBULA WEATHER</h1>
+        <div class="main-data">
+          <div class="location-detail--main">
+            <div class="location--main">King's landing</div>
+            <div class="date--main">Autumn 346 AC</div>
+            <div class="time--main">Dawn</div>
+          </div>
+          <div class="temp-detail--main">
+            <div class="city-name--main">UNKNOWN</div>
+            <div class="temp--main">28 °C</div>
+            <div class="feels-like--main">feels: 27 °C</div>
+          </div>
+        </div>
+        <form action="" class="form">
+          <div class="input-el">
+            <input
+              type="text"
+              class="input-field"
+              id="input-field"
+              data-lat=""
+              data-lon=""
+              name="input"
+              placeholder="enter city name"
+            />
+            <button type="submit" class="submit-btn hidden">submit</button>
+          </div>
+        </form>
+        <div class="geo-suggestions"></div>
+        <div class="additional-data">
+          <div class="humidity">23</div>
+          <div class="wind-speed">45</div>
+        </div>
       </div>
     </div>
-    <form action="" class="form">
-      <div class="input-el">
-        <input
-          type="text"
-          class="input-field"
-          id="input-field"
-          data-lat=""
-          data-lon=""
-          name="input"
-          placeholder="enter city name"
-        />
-        <button type="submit" class="submit-btn hidden">submit</button>
-      </div>
-    </form>
-    <div class="additional-data"></div>
-    <div class="geo-suggestions"></div>
   </body>
 </html>
