@@ -121,16 +121,22 @@ body {
 }
 
 .submit-btn {
-  background-color: var(--bg-blk-1);
+  background-color: var(--bg-wht-1);
   border: none;
   border-radius: var(--br-radius);
   padding: 0.4em;
-  transition: display;
-  transition-duration: 1s;
+  width: 32px;
+  background-image: url("./img/enter.png");
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.submit-btn.hidden {
-  display: none;
+.submit-btn.x {
+  /* display: none; */
+  background-image: url("./img/x.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--bg-wht-1);
 }
 
 .input-field {

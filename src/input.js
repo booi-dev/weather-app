@@ -35,12 +35,10 @@ import './input.css'
 
     const updateInputDataValues = function (locationId) {
         let locationEl = document.getElementById(locationId)
-        // console.log(locationEl.dataset.lat)
-        // console.log(locationEl.dataset.lon)
         inputField.dataset.lat = locationEl.dataset.lat;
         inputField.dataset.lon = locationEl.dataset.lon;
         removeAllSuggestion()
-        submitBtn.classList.remove('hidden')
+        submitBtn.classList.remove('x')
     }
 
     const createSuggestionEl = function name(val, geoSuggestion) {

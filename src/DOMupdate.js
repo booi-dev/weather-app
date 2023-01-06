@@ -40,7 +40,7 @@ function updateMainData(location, forcast, unit, cityName = "--") {
     mainLocation.innerText = locationName;
     mainDate.innerText = formatedDate;
     mainTime.innerText = currentTIme;
-    mainCityName.innerText = cityName;
+    mainCityName.innerText = cityName.toUpperCase();
     mainTemp.innerText = locationTemp;
     feelsLike.innerText = feelstemp;
 }
