@@ -2,3 +2,7 @@
   translate: 20px 2px;
   font-size: var(--fs-large);
 }
+
+.enter-icon {
+  translate: 0 2px;
+}

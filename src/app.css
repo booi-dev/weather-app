@@ -8,6 +8,7 @@
 
 :root {
   --main-1: #f6880b;
+  --main-2: #f6460b;
 
   --bg-blk-1: #00000036;
   --bg-blk-2: #00000062;
@@ -105,13 +106,31 @@ body {
   opacity: 0.8;
 }
 
+.form {
+  position: relative;
+}
+
 .input-el {
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 0.4em;
   margin-block: 1em;
   background-color: var(--bg-wht-1);
   padding-block: 1em;
   border-radius: var(--br-radius);
+}
+
+.submit-btn {
+  background-color: var(--bg-blk-1);
+  border: none;
+  border-radius: var(--br-radius);
+  padding: 0.4em;
+  transition: display;
+  transition-duration: 1s;
+}
+
+.submit-btn.hidden {
+  display: none;
 }
 
 .input-field {
@@ -139,6 +158,33 @@ body {
 
 ::placeholder {
   color: black;
+}
+
+.suggestion-el {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 0.5em;
+  margin: 0.4em 0.1em;
+  /* color: #cfcfcf; */
+}
+
+.suggestion-el:hover {
+  background-color: var(--bg-wht-1);
+}
+
+.state {
+  opacity: 0.6;
+  font-size: 80%;
+}
+
+.geo-suggestions {
+  position: absolute;
+  top: 4em;
+  background-color: var(--main-2);
+  width: 80%;
+  /* padding: 1em; */
+  z-index: 2;
 }
 
 .additional-data {
