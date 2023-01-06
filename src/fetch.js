@@ -4,7 +4,7 @@
 const API_KEY = 'c613a13b184358c24caf13e21b9f03f0'
 
 const getGeoCoordURL = function (city, limit) {
-    return `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${limit}&appid=${API_KEY}`
+    return `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${limit}&appid=${API_KEY}`
 }
 
 const getForcastURL = function (coords, unit) {

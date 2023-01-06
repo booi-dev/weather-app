@@ -7,4 +7,4 @@ chnage image for every weather condition
 
 setting to change from C, F, K
 
-unit in additional data
+unit in additional datagit c
