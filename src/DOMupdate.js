@@ -7,9 +7,17 @@ let currentMonth = format(date, 'MMMM')
 let currentYear = format(date, 'yyyy')
 
 let formatedDate = `${currentDay}, ${currentDate}, ${currentMonth}, ${currentYear}`
-let currentTIme = date.toLocaleTimeString()
+// let currentTIme = date.toLocaleTimeString()
+
+// UTC in milliseconds
+let UTC = new Date(Date.now() + (new Date().getTimezoneOffset() * 60000)).getTime()
 
 function updateMainData(location, forcast, unit, cityName = "--") {
+
+    // timezone is in second. to milliseconds, multiple by 1000
+    let time = UTC + (forcast.timezone * 1000);
+    let timeOfTheLocation = new Date(time)
+    let timeToLocaleTime = timeOfTheLocation.toLocaleTimeString()
 
     let unitSymbol;
 
@@ -43,7 +51,7 @@ function updateMainData(location, forcast, unit, cityName = "--") {
 
     mainLocation.innerText = locationName;
     mainDate.innerText = formatedDate;
-    mainTime.innerText = currentTIme;
+    mainTime.innerText = timeToLocaleTime;
 
     mainCityName.innerText = cityName.toUpperCase();
     mainTemp.innerText = locationTemp;
@@ -53,9 +61,6 @@ function updateMainData(location, forcast, unit, cityName = "--") {
     conditionDesc.innerText = forcast.weather.description;
     humidity.innerText = forcast.main.humidity;
     windspeed.innerText = forcast.windspeed;
-
-    console.log((forcast.date))
-    console.log(fromUnixTime(forcast.date))
 
 }
 
