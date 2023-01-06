@@ -24,9 +24,9 @@ function updateMainData(location, forcast, unit, cityName = "--") {
     if (unit === 'metric') {
         unitSymbol = '°C'
     } if (unit === 'standard') {
-        unitSymbol = '°C'
-    } if (unit === 'imperial') {
         unitSymbol = 'K'
+    } if (unit === 'imperial') {
+        unitSymbol = '°F'
     }
 
     let locationName = `${forcast.name},`
@@ -73,7 +73,6 @@ const removeAnimCls = function () {
     const tempDetailEl = document.querySelector('.temp-detail--main')
     tempDetailEl.classList.remove('anim')
 }
-
 
 
 export {

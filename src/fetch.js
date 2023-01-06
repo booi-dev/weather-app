@@ -67,10 +67,6 @@ const getWeather = async function (coords, unit) {
     return { locations, forcast, unit };
 }
 
-// standard = kelvin
-// metric = celcius
-// imperial = farenheit
-
 export {
     getGeoCoordURL,
     getForcastURL,
