@@ -3,16 +3,11 @@ import * as fetch from './fetch'
 import * as DOMupdate from './DOMupdate'
 import './input'
 import './app.css'
+import './img.css'
 import './icons.css'
 // import BG_IMG from './img/bg-under-the-cloud.webm'
 
 function app() {
-
-    // let cloudVideo = './img/bg-under-the-cloud.webm'
-
-    // let bg = document.querySelector('.bg-video-src')
-    // bg.setAttribute('src', cloudVideo)
-    // console.log(bg)
 
     let netStatus = document.querySelector('.net-status')
 

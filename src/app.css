@@ -7,13 +7,13 @@
 }
 
 :root {
-  --main-1: #f6880b;
-  --main-2: #ffffffd8;
+  --main-1: #c56e0c;
+  --main-2: #ffffffe7;
 
   --bg-blk-1: #00000036;
   --bg-blk-2: #00000062;
 
-  --bg-wht-1: #ffffff27;
+  --bg-wht-1: #ffffff62;
   --bg-wht-2: #ffffff27;
 
   --bg-grn-1: #0ebb0edd;
@@ -31,7 +31,11 @@
 body {
   font-family: "Inconsolata", monospace;
   letter-spacing: 0.1em;
-  background-color: #05186ba7;
+  background-color: var(--main-1);
+  background: url("./img/bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .main-container {
@@ -171,7 +175,7 @@ body {
   background-image: url("./img/x.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-color: rgba(255, 0, 0, 0.662);
+  background-color: var(--bg-blk-1);
   width: 32px;
   padding: 0.4em;
   border-radius: var(--br-radius);
@@ -194,7 +198,7 @@ body {
   border: none;
   border-radius: var(--br-radius);
 
-  background: var(--bg-blk-1);
+  /* background: var(--bg-blk-1); */
   font-family: inherit;
   font-size: var(--fs-medium);
   text-align: center;
@@ -202,13 +206,15 @@ body {
   transition: background-color, color;
   transition-duration: 1s;
   transition-timing-function: ease;
+
+  border-radius: var(--br-radius);
+  background-color: var(--bg-wht-1);
+  outline: none;
 }
 
 .input-field:hover,
 .input-field:focus {
-  border-radius: var(--br-radius);
-  background-color: var(--bg-wht-1);
-  outline: none;
+  border: 1px solid var(--bg-blk-2);
 }
 
 ::placeholder {
@@ -254,11 +260,13 @@ body {
   background-color: var(--bg-wht-1);
   border-radius: var(--br-radius);
   padding: 1em;
-  text-align: right;
+  text-align: center;
 
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: space-between;
+  gap: 0.2em;
 }
 
 .additional-data .lable--ad {
@@ -270,27 +278,21 @@ body {
 }
 
 .condition--ad {
-  background-image: url("./img/weather.jpg");
+  flex: 1;
   background-position: center;
   background-size: cover;
   color: #e2e2e2;
-  text-shadow: 1px 1px #000000;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .condition-desc.desc--ad {
   opacity: 0.8;
 }
 
-.humidity--ad {
-  background-image: url("./img/humidity.png");
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.windspeed--ad {
-  background-image: url("./img/wind.png");
-  background-position: center;
-  background-repeat: no-repeat;
+.icon--ad {
+  width: 80%px;
+  position: absolute;
+  opacity: 0.09;
 }
 
 .bg-video {
@@ -329,5 +331,12 @@ body {
   100% {
     background-color: var(--bg-wht-1);
     scale: 1;
+  }
+}
+
+@media (max-width: 500px) {
+  .condition--ad {
+    flex: 100%;
+    padding-block: 2em;
   }
 }

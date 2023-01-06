@@ -1,7 +1,6 @@
 import { getGeoCoordURL, getGeoCoords } from './fetch'
 import * as fetch from './fetch'
 import * as DOMupdate from './DOMupdate'
-import './input.css'
 
 (function input() {
     const form = document.querySelector('.form');
@@ -116,6 +115,7 @@ import './input.css'
 
     const handleInput = async function (e) {
         DOMupdate.removeAnimCls()
+        DOMupdate.updateConditionCls('condition--ad')
         let limit = 10;
         let val = e.target.value
         let urls = getGeoCoordURL(val, limit)

@@ -10,7 +10,6 @@ const getGeoCoordURL = function (city, limit) {
 const getForcastURL = function (coords, unit) {
     return `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&units=${unit}&appid=${API_KEY}`
 
-
     // return `https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&exclude=minutely&units=${unit}&appid=${API_KEY}`
 }
 
@@ -39,7 +38,7 @@ const getForcast = async function (url) {
         forcast.windspeed = weatherData.wind.speed;
         forcast.date = weatherData.dt;
         forcast.timezone = weatherData.timezone;
-        // console.log(weatherData)
+        console.log(weatherData)
         // console.log(forcast)
         return forcast;
     } catch (error) {

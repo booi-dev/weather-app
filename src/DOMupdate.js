@@ -1,4 +1,4 @@
-import { format, getDate, fromUnixTime } from 'date-fns'
+import { format, getDate } from 'date-fns'
 
 let date = new Date()
 let currentDay = format(date, 'EEEE')
@@ -44,6 +44,7 @@ function updateMainData(location, forcast, unit, cityName = "--") {
     let mainTemp = document.querySelector('.temp--main')
     let feelsLike = document.querySelector('.feels-like--main')
 
+    // let conditionEl = document.querySelector('.condition--ad')
     let condition = document.querySelector('.condition.data--ad')
     let conditionDesc = document.querySelector('.condition-desc.desc--ad')
     let humidity = document.querySelector('.humidity.data--ad')
@@ -57,10 +58,12 @@ function updateMainData(location, forcast, unit, cityName = "--") {
     mainTemp.innerText = locationTemp;
     feelsLike.innerText = feelstemp;
 
+    // conditionEl.classList.add((forcast.weather.main).toLowerCase())
+    updateConditionCls(`condition--ad ${(forcast.weather.main).toLowerCase()}`)
     condition.innerText = forcast.weather.main;
     conditionDesc.innerText = forcast.weather.description;
-    humidity.innerText = forcast.main.humidity;
-    windspeed.innerText = forcast.windspeed;
+    humidity.innerText = `${forcast.main.humidity}%`;
+    windspeed.innerText = `${forcast.windspeed}km/hr`;
 
 }
 
@@ -74,9 +77,14 @@ const removeAnimCls = function () {
     tempDetailEl.classList.remove('anim')
 }
 
+const updateConditionCls = function (state) {
+    let conditionEl = document.querySelector('.condition--ad')
+    conditionEl.className = state;
+}
 
 export {
     updateMainData,
     triggerTempDetailAnim,
-    removeAnimCls
+    removeAnimCls,
+    updateConditionCls
 }
