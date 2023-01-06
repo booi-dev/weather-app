@@ -4,11 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="style.css" /> -->
-    <link
-      rel="stylesheet"
-      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
-    />
     <script src="main.js" defer></script>
     <title>weather-app</title>
   </head>
@@ -19,7 +14,7 @@
         <div class="main-data">
           <div class="location-detail--main">
             <div>
-              <i class="uil uil-location-point"></i>
+              <img src="./img/location.png" alt="" class="locaion-icon" />
               <span class="location--main">King's landing</span>
             </div>
             <div class="date--main">Autumn 346 AC</div>
@@ -42,24 +37,22 @@
               name="input"
               placeholder="enter city name"
             />
-            <button type="submit" class="submit-btn x">
-              <!-- <img src="./img/enter.png" alt="" class="enter-icon" /> -->
-            </button>
+            <button type="submit" class="submit-btn"></button>
             <div class="geo-suggestions"></div>
           </div>
         </form>
         <div class="additional-data">
+          <div class="condition--ad">
+            <div class="lable--ad">condition</div>
+            <div class="condition data--ad">--</div>
+          </div>
           <div class="humidity--ad">
             <div class="lable--ad">humidity</div>
-            <div class="data--ad">23</div>
+            <div class="humidity data--ad">--</div>
           </div>
           <div class="windspeed--ad">
             <div class="lable--ad">wind speed</div>
-            <div class="data--ad">45</div>
-          </div>
-          <div class="windspeed--ad">
-            <div class="lable--ad">wind speed</div>
-            <div class="data--ad">45</div>
+            <div class="windspeed data--ad">--</div>
           </div>
         </div>
       </div>
