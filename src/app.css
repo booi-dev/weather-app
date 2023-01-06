@@ -8,12 +8,15 @@
 
 :root {
   --main-1: #f6880b;
-  --main-2: #f6460b;
+  --main-2: #ffffff9d;
 
   --bg-blk-1: #00000036;
   --bg-blk-2: #00000062;
 
   --bg-wht-1: #ffffff27;
+  --bg-wht-2: #ffffff27;
+
+  --bg-grn-1: #0ebb0edd;
 
   --fs-xlarge: 2.6em;
   --fs-xlarge: 2.3em;
@@ -28,7 +31,7 @@
 body {
   font-family: "Inconsolata", monospace;
   letter-spacing: 0.1em;
-  background-color: rgba(5, 107, 12, 0.655);
+  background-color: #05186ba7;
 }
 
 .main-container {
@@ -36,15 +39,14 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  /* z-index: 2; */
 }
 
 .app {
-  /* width: 34em; */
-  /* height: 35em; */
   padding: 1em;
   margin-inline: 0.5em;
   border-radius: var(--br-radius);
-  background-color: var(--main-1);
+  /* background-color: var(--main-1); */
 }
 
 .site-name {
@@ -87,6 +89,10 @@ body {
   background-color: var(--bg-wht-1);
   padding: 1em;
   text-align: right;
+}
+
+.temp-detail--main.anim {
+  animation: anim 1.5s;
 }
 
 .city-name--main {
@@ -136,7 +142,7 @@ body {
 }
 
 .submit-btn.sub {
-  background-color: var(--bg-wht-1);
+  background-color: var(--bg-grn-1);
   background-image: url("./img/enter.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -169,30 +175,30 @@ body {
   color: black;
 }
 
-.suggestion-el {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5em 0.5em;
-  margin: 0.4em 0.1em;
-  /* color: #cfcfcf; */
-}
-
-.suggestion-el:hover {
-  background-color: var(--bg-wht-1);
-}
-
-.state {
-  opacity: 0.6;
-  font-size: 80%;
-}
-
 .geo-suggestions {
   position: absolute;
   top: 4em;
   background-color: var(--main-2);
   width: 80%;
   z-index: 2;
+}
+
+.suggestion-el {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 0.5em;
+  margin: 0.4em 0.1em;
+}
+
+.suggestion-el:hover {
+  background-color: var(--bg-blk-2);
+  color: white;
+}
+
+.state {
+  opacity: 0.6;
+  font-size: 80%;
 }
 
 .additional-data {
@@ -215,7 +221,6 @@ body {
 
 .additional-data .lable--ad {
   font-size: var(--fs-medium);
-  opacity: 0.8;
 }
 
 .additional-data .data--ad {
@@ -246,4 +251,27 @@ body {
   background-repeat: no-repeat;
 }
 
-/* #00000060 */
+.bg-video {
+  background-color: #f6460b;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+@keyframes anim {
+  from {
+    background-color: var(--bg-wht-1);
+    scale: 1;
+  }
+  50% {
+    background-color: var(--bg-grn-1);
+    scale: 1.2;
+  }
+  100% {
+    background-color: var(--bg-wht-1);
+    scale: 1;
+  }
+}

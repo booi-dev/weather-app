@@ -1,4 +1,4 @@
-import { format, getDate } from 'date-fns'
+import { format, getDate, fromUnixTime } from 'date-fns'
 
 let date = new Date()
 let currentDay = format(date, 'EEEE')
@@ -54,8 +54,25 @@ function updateMainData(location, forcast, unit, cityName = "--") {
     humidity.innerText = forcast.main.humidity;
     windspeed.innerText = forcast.windspeed;
 
+    console.log((forcast.date))
+    console.log(fromUnixTime(forcast.date))
+
 }
 
+const triggerTempDetailAnim = function () {
+    const tempDetailEl = document.querySelector('.temp-detail--main')
+    tempDetailEl.classList.add('anim')
+}
+
+const removeAnimCls = function () {
+    const tempDetailEl = document.querySelector('.temp-detail--main')
+    tempDetailEl.classList.remove('anim')
+}
+
+
+
 export {
-    updateMainData
+    updateMainData,
+    triggerTempDetailAnim,
+    removeAnimCls
 }

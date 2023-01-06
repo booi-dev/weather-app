@@ -64,6 +64,7 @@ import './input.css'
         let forcast = await fetch.getWeather(coords, unit)
         DOMupdate.updateMainData(forcast.locations, forcast.forcast, forcast.unit, cityName)
         clearInputNDisableSubmit()
+        DOMupdate.triggerTempDetailAnim()
     }
 
     const addFormEventListener = function name(e) {
@@ -114,6 +115,7 @@ import './input.css'
     }
 
     const handleInput = async function (e) {
+        DOMupdate.removeAnimCls()
         let limit = 10;
         let val = e.target.value
         let urls = getGeoCoordURL(val, limit)

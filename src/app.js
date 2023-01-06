@@ -8,8 +8,11 @@ import './icons.css'
 
 function app() {
 
-    let bg = document.querySelector('.bg-img')
+    // let cloudVideo = './img/bg-under-the-cloud.webm'
 
+    // let bg = document.querySelector('.bg-video-src')
+    // bg.setAttribute('src', cloudVideo)
+    // console.log(bg)
 
     let unit = 'metric'
 

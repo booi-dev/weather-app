@@ -37,8 +37,9 @@ const getForcast = async function (url) {
         forcast.main = weatherData.main;
         forcast.weather = weatherData.weather[0];
         forcast.windspeed = weatherData.wind.speed;
-        // console.log(weatherData)
-        console.log(forcast)
+        forcast.date = weatherData.dt;
+        console.log(weatherData)
+        // console.log(forcast)
         return forcast;
     } catch (error) {
         console.log(error)
