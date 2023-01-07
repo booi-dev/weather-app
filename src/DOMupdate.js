@@ -16,7 +16,6 @@ let mainLocation = document.querySelector('.location--main')
 let mainDate = document.querySelector('.date--main')
 let mainTime = document.querySelector('.time--main')
 
-let tempDetailEl = document.querySelector('.temp-detail--main')
 let mainCityName = document.querySelector('.city-name--main')
 let mainTemp = document.querySelector('.temp--main')
 let feelsLike = document.querySelector('.feels-like--main')
@@ -92,17 +91,7 @@ const convertTempDOM = function () {
     })
 }
 
-const triggerTempDetailAnim = function () {
-    tempDetailEl.classList.add('anim')
-}
-
-const removeAnimCls = function () {
-    tempDetailEl.classList.remove('anim')
-}
-
 export {
     updateMainData,
-    convertTempDOM,
-    triggerTempDetailAnim,
-    removeAnimCls,
+    convertTempDOM
 }

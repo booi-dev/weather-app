@@ -1,6 +1,6 @@
 import { getGeoCoordURL, getGeoCoords } from './fetch'
-import * as DOMupdate from './DOMupdate';
 import * as SUGGESTION from './autoSuggestion'
+import * as LOADING from './loadingAnim'
 
 const inputField = document.querySelector('.input-field')
 
@@ -13,7 +13,7 @@ const updateInputValue = function (val) {
 }
 
 const handleInput = async function (e) {
-    DOMupdate.removeAnimCls()
+    LOADING.removeAnimCls()
     let limit = 6;
     let val = e.target.value
     let urls = getGeoCoordURL(val, limit)

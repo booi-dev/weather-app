@@ -254,22 +254,6 @@ a {
   z-index: 2;
 }
 
-@keyframes anim {
-  from {
-    background-color: var(--bg-wht-1);
-    scale: 1;
-  }
-  50% {
-    background-color: var(--bg-blk-2);
-    color: whitesmoke;
-    scale: 1.1;
-  }
-  100% {
-    background-color: var(--bg-wht-1);
-    scale: 1;
-  }
-}
-
 @media (max-width: 500px) {
   .app {
     padding: 0;

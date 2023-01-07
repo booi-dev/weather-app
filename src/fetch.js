@@ -1,6 +1,5 @@
-
 import * as TEMP from './temp'
-import * as LOADING from './loadingSpinner'
+import * as LOADING from './loadingAnim'
 
 const API_KEY = 'c613a13b184358c24caf13e21b9f03f0'
 

@@ -1,5 +1,6 @@
 import * as INPUT from './input'
 import * as TEMP from './temp'
+import * as LOADING from './loadingAnim'
 import * as FETCH from './fetch';
 import * as DOMUPDATE from './DOMupdate';
 
@@ -34,7 +35,7 @@ const handleSuggestinClickEvent = async function (coords, cityName) {
     let unit = TEMP.getUnit();
     let forcast = await FETCH.getWeather(coords, unit)
     DOMUPDATE.updateMainData(forcast.locations, forcast.forcast, forcast.unit, cityName)
-    DOMUPDATE.triggerTempDetailAnim()
+    LOADING.triggerTempDetailAnim()
     removeBackDropNSuggeestions()
     INPUT.updateInputValue('')
 }

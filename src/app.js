@@ -7,7 +7,7 @@ import './input'
 import './app.css'
 import './img.css'
 import './icons.css'
-import './loadingSpinner.css'
+import './loadingAnim.css'
 
 function app() {
 

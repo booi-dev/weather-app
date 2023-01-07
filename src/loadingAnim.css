@@ -1,12 +1,15 @@
 .loading-el {
   position: absolute;
-  top: 20%;
-  left: 30%;
+  top: 50%;
+  left: 50%;
 }
 
 .loading-ripple.anim div {
   position: absolute;
-  border: 3px solid var(--bg-blk-4);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  border: 3px solid var(--main-1);
   opacity: 1;
   border-radius: 50%;
   animation: ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
@@ -17,28 +20,21 @@
 }
 @keyframes ripple {
   0% {
-    top: 25px;
-    left: 20px;
     width: 0;
     height: 0;
     opacity: 0;
   }
   4.9% {
-    top: 36px;
-    left: 36px;
     width: 0;
     height: 0;
     opacity: 0;
   }
   5% {
-    top: 36px;
-    left: 36px;
     width: 0;
     height: 0;
     opacity: 1;
   }
   100% {
-    top: 0px;
     left: 0px;
     width: 72px;
     height: 72px;
@@ -49,8 +45,7 @@
 @media (max-width: 500px) {
   .loading-el {
     position: absolute;
-    top: 10px;
     left: revert;
-    right: 80px;
+    right: 50px;
   }
 }

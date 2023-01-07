@@ -52,7 +52,7 @@
 }
 
 .temp-detail--main.anim {
-  animation: anim 1s;
+  animation: anim 0.5s;
 }
 
 .city-name--main {
@@ -84,5 +84,21 @@
     font-size: var(--fs-large);
     opacity: 1;
     text-align: left;
+  }
+}
+
+@keyframes anim {
+  from {
+    background-color: var(--bg-wht-1);
+    scale: 1;
+  }
+  50% {
+    background-color: var(--bg-blk-2);
+    color: whitesmoke;
+    scale: 1.05;
+  }
+  100% {
+    background-color: var(--bg-wht-1);
+    scale: 1;
   }
 }
