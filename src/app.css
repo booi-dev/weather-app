@@ -12,7 +12,8 @@
 
   --bg-blk-1: #00000036;
   --bg-blk-2: #00000062;
-  --bg-blk-3: #000000d8;
+  --bg-blk-3: #000000c4;
+  --bg-blk-4: #000000e4;
 
   --bg-wht-1: #ffffff62;
   --bg-wht-2: #ffffff27;
@@ -95,95 +96,6 @@ body {
 
 .date--main,
 .time--main {
-  opacity: 0.8;
-}
-
-.temp-detail--main {
-  flex: 1;
-  background-color: var(--bg-wht-1);
-  padding: 1em;
-  text-align: right;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  position: relative;
-}
-
-.unit-switch-btn {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background-color: transparent;
-  color: var(--bg-blk-2);
-
-  border-top: 1px solid var(--bg-blk-1);
-  border-left: 1px solid var(--bg-blk-1);
-  border-radius: 10px 0 0 0;
-  cursor: pointer;
-  z-index: 2;
-  overflow: hidden;
-}
-
-.switch-label {
-  opacity: 0;
-  margin-left: -87px;
-  transition: margin-left 0.5s;
-  transition-duration: 0.5s;
-}
-
-.switch-label.show {
-  opacity: 1;
-  margin-left: 0px;
-}
-
-.switch-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  color: inherit;
-  width: 20px;
-  height: 20px;
-  border: none;
-}
-
-.switch-label,
-.switch-btn {
-  font-weight: 600;
-  font-size: 16px;
-}
-
-.unit-switch-btn:hover {
-  background-color: var(--bg-blk-3);
-  color: whitesmoke;
-  padding-left: 0.3em;
-}
-
-.temp-detail--main.anim {
-  animation: anim 1s;
-}
-
-.city-name--main {
-  font-size: var(--fs-medium);
-  opacity: 0.8;
-}
-
-.temp--main {
-  font-size: var(--fs-xlarge);
-}
-
-.temp--main,
-.feels-like--main {
-  word-spacing: -0.6em;
-}
-
-.feels-like--main {
   opacity: 0.8;
 }
 
@@ -369,18 +281,6 @@ a {
 
   .location-detail--main {
     text-align: center;
-  }
-
-  .temp-detail--main {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .city-name--main {
-    font-size: var(--fs-large);
-    opacity: 1;
-    text-align: left;
   }
 
   .condition--ad {

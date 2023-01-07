@@ -1,8 +1,7 @@
 import * as DOMupdate from './DOMupdate'
+import "./temp.css";
 
-let unitswitcherLabel = document.querySelector('.unit-switch-btn')
-let switcherBtn = document.querySelector('.switch-btn')
-let switcherLabel = document.querySelector('.switch-label')
+let switchBtn = document.querySelector('.switch-btn')
 
 // standard = kelvin
 // metric = celcius
@@ -32,16 +31,7 @@ const updateTemp = function (temp) {
     feelsTemp = temp.feelsTemp;
 }
 
-const updateSwitchBtn = function (unit) {
-    // console.log(unit)
-    if (unit === 'imperial') {
-        switcherBtn.innerText = '°C'
-    } else {
-        switcherBtn.innerText = '°F'
-    }
-}
-
-// 
+//
 
 let coords;
 
@@ -57,16 +47,17 @@ const updateCoords = function (toCoords) {
 }
 
 //
-const showUnitbtn = function () {
-    switcherLabel.classList.add('show')
+
+const updateSwitchBtn = function (unit) {
+    // console.log(unit, "sdhffoi")
+    if (unit === 'imperial') {
+        switchBtn.innerText = '°C'
+    } else {
+        switchBtn.innerText = '°F'
+    }
 }
 
-const hideUnitbtn = function () {
-    switcherLabel.classList.remove('show')
-}
-
-unitswitcherLabel.addEventListener('mouseover', showUnitbtn)
-unitswitcherLabel.addEventListener('mouseleave', hideUnitbtn)
+// 
 
 const changeUnit = function () {
     if (unit === "metric") {
@@ -79,8 +70,9 @@ const changeUnit = function () {
     updateSwitchBtn(unit)
 }
 
-unitswitcherLabel.addEventListener('click', changeUnit)
+switchBtn.addEventListener('click', changeUnit)
 
+//
 
 const convertToCelsius = function (degree) {
     let converted = round((degree - 32) * 5 / 9, 2);

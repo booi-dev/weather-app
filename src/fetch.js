@@ -1,5 +1,6 @@
 
 import * as TEMP from './temp'
+import * as LOADING from './loadingSpinner'
 
 const API_KEY = 'c613a13b184358c24caf13e21b9f03f0'
 
@@ -30,6 +31,7 @@ const getGeoCoords = async function (url) {
 const getForcast = async function (url) {
     let forcast = {}
     try {
+        LOADING.startLoadingAnim()
         const response = await fetch(url);
         const weatherData = await response.json();
         forcast.name = weatherData.name;
@@ -45,6 +47,7 @@ const getForcast = async function (url) {
             mainTemp: weatherData.main.temp,
             feelsTemp: weatherData.main.feels_like
         })
+        LOADING.stopLoadingAnim()
         return forcast;
     } catch (error) {
         console.log(error)
