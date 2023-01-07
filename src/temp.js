@@ -56,7 +56,7 @@ const changeUnit = function () {
     } else {
         unit = "metric";
     }
-    console.log(mainTemp, feelsTemp, unit)
+    // console.log(mainTemp, feelsTemp, unit)
     DOMupdate.convertTempDOM()
     updateSwitchBtn(unit)
 }

@@ -52,16 +52,13 @@ function updateMainData(location, forcast, unit, cityName = "--") {
     if (location.state) locationName += ` ${location.state},`;
     locationName += ` ${location.country}`;
 
-    let locationTemp = `${forcast.main.temp}${unitSymbol}`;
-    let feelstemp = `feels: ${forcast.main.feels_like}${unitSymbol}`;
-
     mainLocation.innerText = locationName;
     mainDate.innerText = formatedDate;
     mainTime.innerText = timeToLocaleTime;
 
     mainCityName.innerText = cityName.toUpperCase();
-    mainTemp.innerText = locationTemp;
-    feelsLike.innerText = feelstemp;
+    mainTemp.innerText = `${forcast.main.temp}${unitSymbol}`;
+    feelsLike.innerText = `feels: ${forcast.main.feels_like} ${unitSymbol}`;
 
     // conditionEl.classList.add((forcast.weather.main).toLowerCase())
     updateConditionCls(`condition--ad ${(forcast.weather.main).toLowerCase()}`)
@@ -90,17 +87,14 @@ const convertTempDOM = function () {
     }
 
     mainTemp.innerText = `${convertedMainTemp}${unitSymbol}`;
-    feelsLike.innerText = `feels: ${convertedFeelsTemp}${unitSymbol}`;
+    feelsLike.innerText = `feels: ${convertedFeelsTemp} ${unitSymbol}`;
 
     // console.log({ convertedMainTemp, convertedFeelsTemp })
     TEMP.updateTemp({
         mainTemp: convertedMainTemp,
         feelsTemp: convertedFeelsTemp
     })
-
-    TEMP.updateUnit()
 }
-
 
 const triggerTempDetailAnim = function () {
     tempDetailEl.classList.add('anim')
