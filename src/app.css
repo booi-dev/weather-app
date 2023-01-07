@@ -7,7 +7,7 @@
 }
 
 :root {
-  --main-1: #c56e0c;
+  --main-1: #80e4f1b6;
   --main-2: #ffffffe7;
 
   --bg-blk-1: #00000036;
@@ -57,7 +57,7 @@ body {
 .site-title-container {
   padding: 1em;
   margin-bottom: 1em;
-  background: var(--bg-wht-1);
+  background: var(--main-1);
   border-radius: var(--br-radius);
 }
 
@@ -191,33 +191,12 @@ body {
   gap: 0.4em;
   margin-block: 1em;
   background-color: var(--bg-wht-1);
-  padding-block: 1em;
+  padding: 1em;
   border-radius: var(--br-radius);
-}
-
-.submit-btn {
-  background-image: url("./img/x.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: var(--bg-blk-1);
-  width: 32px;
-  padding: 0.4em;
-  border-radius: var(--br-radius);
-  border: none;
-  transition: background-color;
-  transition-duration: 1s;
-  transition-timing-function: ease-in-out;
-}
-
-.submit-btn.sub {
-  background-color: var(--bg-grn-1);
-  background-image: url("./img/enter.png");
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .input-field {
-  width: 60%;
+  width: 100%;
   height: 2em;
   border: none;
   border-radius: var(--br-radius);
@@ -242,6 +221,27 @@ body {
 
 ::placeholder {
   color: black;
+}
+
+.submit-btn {
+  background-image: url("./img/x.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--bg-blk-1);
+  width: 32px;
+  padding: 0.4em;
+  border-radius: var(--br-radius);
+  border: none;
+  transition: background-color;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+}
+
+.submit-btn.sub {
+  background-color: var(--bg-grn-1);
+  background-image: url("./img/enter.png");
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .geo-suggestions {
@@ -311,11 +311,6 @@ body {
   opacity: 0.8;
 }
 
-/* .humidity--ad,
-.windspeed--ad {
-  flex: 1;
-} */
-
 .icon--ad {
   width: 80%px;
   position: absolute;
@@ -384,6 +379,24 @@ a {
 @media (max-width: 500px) {
   .app {
     padding: 0;
+  }
+
+  .main-data > * {
+    flex: 100%;
+  }
+
+  .temp-detail--main {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .city-name--main {
+    scale: 1.5;
+  }
+
+  .unit-switch-btn {
+    top: 0.3em;
   }
 
   .condition--ad {
