@@ -16,7 +16,6 @@ function app() {
         netStatus.innerText = 'slow/no internet'
     }
 
-    //
     const clientLocation = async function () {
         let unit = TEMP.getUnit();
 

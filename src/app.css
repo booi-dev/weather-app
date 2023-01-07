@@ -299,7 +299,8 @@ body {
 }
 
 .condition--ad {
-  flex: 1;
+  /* flex: 1 1 33%; */
+  /* width: 35%; */
   background-position: center;
   background-size: cover;
   color: #e2e2e2;
@@ -309,6 +310,11 @@ body {
 .condition-desc.desc--ad {
   opacity: 0.8;
 }
+
+/* .humidity--ad,
+.windspeed--ad {
+  flex: 1;
+} */
 
 .icon--ad {
   width: 80%px;

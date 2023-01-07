@@ -64,8 +64,8 @@ function updateMainData(location, forcast, unit, cityName = "--") {
     updateConditionCls(`condition--ad ${(forcast.weather.main).toLowerCase()}`)
     condition.innerText = forcast.weather.main;
     conditionDesc.innerText = forcast.weather.description;
-    humidity.innerText = `${forcast.main.humidity}%`;
-    windspeed.innerText = `${forcast.windspeed}km/hr`;
+    humidity.innerText = `${forcast.main.humidity}`;
+    windspeed.innerText = `${forcast.windspeed}`;
 }
 
 const convertTempDOM = function () {

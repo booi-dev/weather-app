@@ -38,7 +38,7 @@ const getForcast = async function (url) {
         forcast.windspeed = weatherData.wind.speed;
         forcast.date = weatherData.dt;
         forcast.timezone = weatherData.timezone;
-        console.log(weatherData)
+        // console.log(weatherData)
         // console.log(forcast)
 
         TEMP.updateTemp({
