@@ -90,15 +90,15 @@
 @keyframes anim {
   from {
     background-color: var(--bg-wht-1);
-    scale: 1;
+    transform: scaleY(1);
   }
   50% {
     background-color: var(--bg-blk-2);
     color: whitesmoke;
-    scale: 1.05;
+    transform: scaleY(1.08);
   }
   100% {
     background-color: var(--bg-wht-1);
-    scale: 1;
+    transform: scaleY(1);
   }
 }
