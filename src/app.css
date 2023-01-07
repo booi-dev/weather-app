@@ -222,10 +222,6 @@ body {
   border: 1px solid var(--bg-blk-2);
 }
 
-::placeholder {
-  color: black;
-}
-
 .geo-suggestions {
   position: absolute;
   top: 4em;
@@ -380,6 +376,8 @@ a {
 
   .city-name--main {
     font-size: var(--fs-large);
+    opacity: 1;
+    text-align: left;
   }
 
   .condition--ad {

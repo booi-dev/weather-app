@@ -21,6 +21,7 @@ let mainCityName = document.querySelector('.city-name--main')
 let mainTemp = document.querySelector('.temp--main')
 let feelsLike = document.querySelector('.feels-like--main')
 
+let conditionEl = document.querySelector('.condition--ad')
 let condition = document.querySelector('.condition.data--ad')
 let conditionDesc = document.querySelector('.condition-desc.desc--ad')
 let humidity = document.querySelector('.humidity.data--ad')
@@ -37,7 +38,6 @@ const setUnitSym = function (unit) {
         unitSymbol = '°F'
     }
 }
-
 
 function updateMainData(location, forcast, unit, cityName = "--") {
 
@@ -60,13 +60,12 @@ function updateMainData(location, forcast, unit, cityName = "--") {
     mainTemp.innerText = `${forcast.main.temp}${unitSymbol}`;
     feelsLike.innerText = `feels: ${forcast.main.feels_like} ${unitSymbol}`;
 
-    // conditionEl.classList.add((forcast.weather.main).toLowerCase())
     condition.innerText = forcast.weather.main;
     conditionDesc.innerText = forcast.weather.description;
     humidity.innerText = `${forcast.main.humidity}`;
     windspeed.innerText = `${forcast.windspeed}`;
 
-    updateConditionCls(`condition--ad ${(forcast.weather.main).toLowerCase()}`)
+    conditionEl.className = `condition--ad ${(forcast.weather.main).toLowerCase()}`;
 }
 
 const convertTempDOM = function () {
@@ -101,15 +100,9 @@ const removeAnimCls = function () {
     tempDetailEl.classList.remove('anim')
 }
 
-const updateConditionCls = function (state) {
-    let conditionEl = document.querySelector('.condition--ad')
-    conditionEl.className = state;
-}
-
 export {
     updateMainData,
     convertTempDOM,
     triggerTempDetailAnim,
     removeAnimCls,
-    updateConditionCls
 }

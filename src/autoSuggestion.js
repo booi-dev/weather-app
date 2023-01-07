@@ -33,10 +33,10 @@ const handleSuggestinClickEvent = async function (coords, cityName) {
 
     let unit = TEMP.getUnit();
     let forcast = await FETCH.getWeather(coords, unit)
-
     DOMUPDATE.updateMainData(forcast.locations, forcast.forcast, forcast.unit, cityName)
     DOMUPDATE.triggerTempDetailAnim()
     removeBackDropNSuggeestions()
+    INPUT.updateInputValue('')
 }
 
 const createSuggestionEl = function name(val, geoSuggestion) {
@@ -89,6 +89,8 @@ const closeBackDrop = function () {
 const removeBackDropNSuggeestions = function () {
     clearSuggestions()
     closeBackDrop()
+    let inputValue = INPUT.getInputValue()
+    INPUT.updateInputValue(inputValue.slice(0, -1))
 }
 
 backDrop.addEventListener('click', (removeBackDropNSuggeestions))
