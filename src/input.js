@@ -15,7 +15,7 @@ const updateInputValue = function (val) {
 const handleInput = async function (e) {
     DOMupdate.removeAnimCls()
     DOMupdate.updateConditionCls('condition--ad')
-    let limit = 10;
+    let limit = 6;
     let val = e.target.value
     let urls = getGeoCoordURL(val, limit)
     let coords = await getGeoCoords(urls)
