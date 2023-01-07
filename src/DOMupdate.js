@@ -1,4 +1,5 @@
 import { format, getDate } from 'date-fns'
+import * as TEMP from './temp'
 
 let date = new Date()
 let currentDay = format(date, 'EEEE')
@@ -7,10 +8,36 @@ let currentMonth = format(date, 'MMMM')
 let currentYear = format(date, 'yyyy')
 
 let formatedDate = `${currentDay}, ${currentDate}, ${currentMonth}, ${currentYear}`
-// let currentTIme = date.toLocaleTimeString()
-
 // UTC in milliseconds
 let UTC = new Date(Date.now() + (new Date().getTimezoneOffset() * 60000)).getTime()
+
+
+let mainLocation = document.querySelector('.location--main')
+let mainDate = document.querySelector('.date--main')
+let mainTime = document.querySelector('.time--main')
+
+let tempDetailEl = document.querySelector('.temp-detail--main')
+let mainCityName = document.querySelector('.city-name--main')
+let mainTemp = document.querySelector('.temp--main')
+let feelsLike = document.querySelector('.feels-like--main')
+
+let condition = document.querySelector('.condition.data--ad')
+let conditionDesc = document.querySelector('.condition-desc.desc--ad')
+let humidity = document.querySelector('.humidity.data--ad')
+let windspeed = document.querySelector('.windspeed.data--ad')
+
+let unitSymbol;
+
+const setUnitSym = function (unit) {
+    if (unit === 'metric') {
+        unitSymbol = '°C'
+    } if (unit === 'standard') {
+        unitSymbol = 'K'
+    } if (unit === 'imperial') {
+        unitSymbol = '°F'
+    }
+}
+
 
 function updateMainData(location, forcast, unit, cityName = "--") {
 
@@ -19,15 +46,7 @@ function updateMainData(location, forcast, unit, cityName = "--") {
     let timeOfTheLocation = new Date(time)
     let timeToLocaleTime = timeOfTheLocation.toLocaleTimeString()
 
-    let unitSymbol;
-
-    if (unit === 'metric') {
-        unitSymbol = '°C'
-    } if (unit === 'standard') {
-        unitSymbol = 'K'
-    } if (unit === 'imperial') {
-        unitSymbol = '°F'
-    }
+    setUnitSym(unit)
 
     let locationName = `${forcast.name},`
     if (location.state) locationName += ` ${location.state},`;
@@ -35,20 +54,6 @@ function updateMainData(location, forcast, unit, cityName = "--") {
 
     let locationTemp = `${forcast.main.temp}${unitSymbol}`;
     let feelstemp = `feels: ${forcast.main.feels_like}${unitSymbol}`;
-
-    let mainLocation = document.querySelector('.location--main')
-    let mainDate = document.querySelector('.date--main')
-    let mainTime = document.querySelector('.time--main')
-
-    let mainCityName = document.querySelector('.city-name--main')
-    let mainTemp = document.querySelector('.temp--main')
-    let feelsLike = document.querySelector('.feels-like--main')
-
-    // let conditionEl = document.querySelector('.condition--ad')
-    let condition = document.querySelector('.condition.data--ad')
-    let conditionDesc = document.querySelector('.condition-desc.desc--ad')
-    let humidity = document.querySelector('.humidity.data--ad')
-    let windspeed = document.querySelector('.windspeed.data--ad')
 
     mainLocation.innerText = locationName;
     mainDate.innerText = formatedDate;
@@ -64,16 +69,44 @@ function updateMainData(location, forcast, unit, cityName = "--") {
     conditionDesc.innerText = forcast.weather.description;
     humidity.innerText = `${forcast.main.humidity}%`;
     windspeed.innerText = `${forcast.windspeed}km/hr`;
-
 }
 
+const convertTempDOM = function () {
+    let temps = TEMP.getTemp()
+    let unit = TEMP.getUnit()
+
+    // console.log(temps)
+    let convertedMainTemp;
+    let convertedFeelsTemp;
+
+    setUnitSym(unit)
+
+    if (unit === "metric") {
+        convertedMainTemp = TEMP.convertToCelsius(temps.mainTemp);
+        convertedFeelsTemp = TEMP.convertToCelsius(temps.feelsTemp);
+    } else {
+        convertedMainTemp = TEMP.convertToFahrenheit(temps.mainTemp);
+        convertedFeelsTemp = TEMP.convertToFahrenheit(temps.feelsTemp);
+    }
+
+    mainTemp.innerText = `${convertedMainTemp}${unitSymbol}`;
+    feelsLike.innerText = `feels: ${convertedFeelsTemp}${unitSymbol}`;
+
+    // console.log({ convertedMainTemp, convertedFeelsTemp })
+    TEMP.updateTemp({
+        mainTemp: convertedMainTemp,
+        feelsTemp: convertedFeelsTemp
+    })
+
+    TEMP.updateUnit()
+}
+
+
 const triggerTempDetailAnim = function () {
-    const tempDetailEl = document.querySelector('.temp-detail--main')
     tempDetailEl.classList.add('anim')
 }
 
 const removeAnimCls = function () {
-    const tempDetailEl = document.querySelector('.temp-detail--main')
     tempDetailEl.classList.remove('anim')
 }
 
@@ -84,6 +117,7 @@ const updateConditionCls = function (state) {
 
 export {
     updateMainData,
+    convertTempDOM,
     triggerTempDetailAnim,
     removeAnimCls,
     updateConditionCls

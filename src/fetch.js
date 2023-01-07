@@ -1,5 +1,5 @@
 
-// function fetch() {
+import * as TEMP from './temp'
 
 const API_KEY = 'c613a13b184358c24caf13e21b9f03f0'
 
@@ -40,6 +40,11 @@ const getForcast = async function (url) {
         forcast.timezone = weatherData.timezone;
         console.log(weatherData)
         // console.log(forcast)
+
+        TEMP.updateTemp({
+            mainTemp: weatherData.main.temp,
+            feelsTemp: weatherData.main.feels_like
+        })
         return forcast;
     } catch (error) {
         console.log(error)

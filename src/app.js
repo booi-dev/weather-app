@@ -1,11 +1,11 @@
 import getClientLocation from "./clientLocation";
 import * as fetch from './fetch'
+import * as TEMP from "./temp";
 import * as DOMupdate from './DOMupdate'
 import './input'
 import './app.css'
 import './img.css'
 import './icons.css'
-// import BG_IMG from './img/bg-under-the-cloud.webm'
 
 function app() {
 
@@ -16,54 +16,10 @@ function app() {
         netStatus.innerText = 'slow/no internet'
     }
 
-    // standard = kelvin
-    // metric = celcius
-    // imperial = farenheit
-
-    let unit = 'metric'
-
-    let unitswitcherLabel = document.querySelector('.unit-switch-btn')
-    let switcherBtn = document.querySelector('.switch-btn')
-    let switcherLabel = document.querySelector('.switch-label')
-
-    const updateSwitchBtn = function (unit) {
-        if (unit === 'metric') {
-            switcherBtn.innerText = '°F'
-        } if ((unit === 'imperial')) {
-            switcherBtn.innerText = '°C'
-        }
-        // console.log("sdhfiuh")
-    }
-
-    updateSwitchBtn(unit)
-
-    const showUnitbtn = function () {
-        switcherLabel.classList.add('show')
-    }
-
-    const hideUnitbtn = function () {
-        switcherLabel.classList.remove('show')
-    }
-
-    unitswitcherLabel.addEventListener('mouseover', showUnitbtn)
-    unitswitcherLabel.addEventListener('mouseleave', hideUnitbtn)
-
-    const changeUnit = function () {
-        if (unit === "metric") {
-            unit = "imperial";
-        }
-        if (unit === "imperial") {
-            unit = "metric";
-        }
-        console.log(unit)
-        clientLocation()
-        updateSwitchBtn(unit)
-    }
-
-    unitswitcherLabel.addEventListener('click', changeUnit)
-
     //
     const clientLocation = async function () {
+        let unit = TEMP.getUnit();
+
         let clientGeo = await getClientLocation;
         let coords = {
             lat: clientGeo.coords.latitude,

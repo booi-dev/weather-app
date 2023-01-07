@@ -1,6 +1,7 @@
 import { getGeoCoordURL, getGeoCoords } from './fetch'
-import * as fetch from './fetch'
-import * as DOMupdate from './DOMupdate'
+import * as fetch from './fetch';
+import * as TEMP from "./temp";
+import * as DOMupdate from './DOMupdate';
 
 (function input() {
     const form = document.querySelector('.form');
@@ -8,8 +9,6 @@ import * as DOMupdate from './DOMupdate'
     const submitBtn = document.querySelector('.submit-btn')
     submitBtn.disabled = true;
     const geoSuggestionEl = document.querySelector('.geo-suggestions')
-
-    let unit = 'metric'
 
     const removeHtmlTags = function (element) {
         return element.replace(/(<([^>]+)>)/ig, '')
@@ -60,6 +59,7 @@ import * as DOMupdate from './DOMupdate'
             lon: inputField.dataset.lon
         }
         let cityName = inputField.value;
+        let unit = TEMP.getUnit();
         let forcast = await fetch.getWeather(coords, unit)
         DOMupdate.updateMainData(forcast.locations, forcast.forcast, forcast.unit, cityName)
         clearInputNDisableSubmit()
