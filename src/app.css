@@ -55,6 +55,10 @@ body {
 }
 
 .site-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
   padding: 1em;
   margin-bottom: 1em;
   background: var(--main-1);
@@ -346,19 +350,10 @@ a {
   color: black;
 }
 
-.git-signature {
-  display: flex;
-  align-items: center;
-  position: fixed;
-  left: 50%;
-  bottom: 0.1em;
-  translate: -50% -50%;
-  cursor: pointer;
-}
-
 .git-signature img {
   width: 20px;
-  translate: 8px;
+  translate: 0 2px;
+  cursor: pointer;
 }
 
 @keyframes anim {
@@ -393,10 +388,6 @@ a {
 
   .city-name--main {
     scale: 1.5;
-  }
-
-  .unit-switch-btn {
-    top: 0.3em;
   }
 
   .condition--ad {
