@@ -126,11 +126,10 @@ body {
   opacity: 0;
   margin-left: -87px;
   transition: margin-left 0.5s;
-  transition-duration: 1s;
+  transition-duration: 0.5s;
 }
 
 .switch-label.show {
-  /* display: block; */
   opacity: 1;
   margin-left: 0px;
 }
@@ -299,8 +298,6 @@ body {
 }
 
 .condition--ad {
-  /* flex: 1 1 33%; */
-  /* width: 35%; */
   background-position: center;
   background-size: cover;
   color: #e2e2e2;
