@@ -1,5 +1,6 @@
 import getClientLocation from "./clientLocation";
 import * as fetch from './fetch'
+import * as INPUT from './input'
 import * as TEMP from "./temp";
 import * as DOMupdate from './DOMupdate'
 import './input'
@@ -30,6 +31,12 @@ function app() {
     }
 
     clientLocation()
+
+    //
+
+    INPUT.setInputEventListener()
+
+
 }
 
 export default app;

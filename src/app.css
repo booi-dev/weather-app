@@ -229,34 +229,13 @@ body {
   color: black;
 }
 
-.submit-btn {
-  background-image: url("./img/x.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: var(--bg-blk-1);
-  width: 32px;
-  padding: 0.4em;
-  border-radius: var(--br-radius);
-  border: none;
-  transition: background-color;
-  transition-duration: 1s;
-  transition-timing-function: ease-in-out;
-}
-
-.submit-btn.sub {
-  background-color: var(--bg-grn-1);
-  background-image: url("./img/enter.png");
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 .geo-suggestions {
   position: absolute;
   top: 4em;
   background-color: var(--main-2);
   border-radius: var(--br-radius);
   width: 80%;
-  z-index: 2;
+  z-index: 3;
 }
 
 .suggestion-el {
@@ -413,4 +392,15 @@ a {
   .input-el {
     margin-block: 0.5em;
   }
+}
+
+.back-drop.show {
+  /* display: none; */
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0);
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1005;
+  z-index: 2;
 }

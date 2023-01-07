@@ -18,6 +18,8 @@ const updateUnit = function (toUnit) {
     unit = toUnit;
 }
 
+// 
+
 let mainTemp;
 let feelsTemp;
 
@@ -39,6 +41,22 @@ const updateSwitchBtn = function (unit) {
     }
 }
 
+// 
+
+let coords;
+
+const getCoords = function () {
+    return coords;
+}
+
+const updateCoords = function (toCoords) {
+    coords = {
+        lat: toCoords.lat,
+        lon: toCoords.lon
+    };
+}
+
+//
 const showUnitbtn = function () {
     switcherLabel.classList.add('show')
 }
@@ -84,6 +102,8 @@ export {
     updateUnit,
     getTemp,
     updateTemp,
+    getCoords,
+    updateCoords,
     convertToCelsius,
     convertToFahrenheit
 }
