@@ -54,11 +54,14 @@ body {
   /* background-color: var(--main-1); */
 }
 
-.site-name {
-  padding: 0.5em;
-  margin-bottom: 0.5em;
+.site-title-container {
+  padding: 1em;
+  margin-bottom: 1em;
   background: var(--bg-wht-1);
   border-radius: var(--br-radius);
+}
+
+.site-name {
   font-size: var(--fs-large);
 }
 
@@ -388,8 +391,8 @@ a {
     padding-block: 2em;
   }
 
-  .site-name {
-    margin-bottom: 0.25em;
+  .site-title-container {
+    margin-bottom: 0.5em;
   }
 
   .main-data,
