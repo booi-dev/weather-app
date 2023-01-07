@@ -65,7 +65,6 @@ const createSuggestionEl = function name(val, geoSuggestion) {
     geoSuggestionEl.prepend(suggestion)
 }
 
-
 const inputAutoComplete = async function (val, suggestionsArr) {
     for (let i = 0; i < suggestionsArr.length; i++) {
         if (suggestionsArr[i].name.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
