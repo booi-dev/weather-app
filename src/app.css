@@ -75,7 +75,7 @@ body {
 .location-detail--main {
   background-color: var(--bg-wht-1);
   padding: 1em;
-  flex: 2 1 5em;
+  flex: 3 1 6em;
   line-height: 1.4em;
 
   display: flex;
@@ -95,7 +95,7 @@ body {
 .temp-detail--main {
   flex: 1;
   background-color: var(--bg-wht-1);
-  padding: 1em 2em;
+  padding: 1em;
   text-align: right;
 
   display: flex;
@@ -350,5 +350,18 @@ body {
   .condition--ad {
     flex: 100%;
     padding-block: 2em;
+  }
+
+  .site-name {
+    margin-bottom: 0.25em;
+  }
+
+  .main-data,
+  .additional-data {
+    gap: 0.5em;
+  }
+
+  .input-el {
+    margin-block: 0.5em;
   }
 }
