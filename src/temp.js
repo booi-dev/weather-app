@@ -65,12 +65,12 @@ unitswitcherLabel.addEventListener('click', changeUnit)
 
 
 const convertToCelsius = function (degree) {
-    let converted = round((degree - 32) * 5 / 9, 1);
+    let converted = round((degree - 32) * 5 / 9, 2);
     return converted;
 };
 
 const convertToFahrenheit = function (degree) {
-    let converted = round((degree * (9 / 5)) + 32, 1);
+    let converted = round((degree * (9 / 5)) + 32, 2);
     return converted;
 };
 
@@ -78,7 +78,6 @@ function round(value, precision) {
     var multiplier = Math.pow(10, precision || 0);
     return Math.round(value * multiplier) / multiplier;
 }
-
 
 export {
     getUnit,

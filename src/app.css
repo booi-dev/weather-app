@@ -7,7 +7,7 @@
 }
 
 :root {
-  --main-1: #80e4f1b6;
+  --main-1: #023d46b6;
   --main-2: #ffffffe7;
 
   --bg-blk-1: #00000036;
@@ -67,6 +67,8 @@ body {
 
 .site-name {
   font-size: var(--fs-large);
+  font-weight: 400;
+  color: whitesmoke;
 }
 
 .main-data {
@@ -103,7 +105,7 @@ body {
 .temp-detail--main {
   flex: 1;
   background-color: var(--bg-wht-1);
-  padding: 1em 2em;
+  padding: 1em;
   text-align: right;
 
   display: flex;
@@ -121,7 +123,7 @@ body {
   position: absolute;
   bottom: 0.2em;
   left: 0.2em;
-  background-color: var(--main-2);
+  background-color: var(--bg-wht-1);
   padding-inline: 0.3em;
   border-radius: var(--br-radius);
   cursor: pointer;
@@ -380,14 +382,18 @@ a {
     flex: 100%;
   }
 
+  .location-detail--main {
+    text-align: center;
+  }
+
   .temp-detail--main {
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
   }
 
   .city-name--main {
-    scale: 1.5;
+    font-size: var(--fs-large);
   }
 
   .condition--ad {
