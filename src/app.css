@@ -343,6 +343,26 @@ body {
   z-index: 3;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.git-signature {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  left: 50%;
+  bottom: 0.1em;
+  translate: -50% -50%;
+  cursor: pointer;
+}
+
+.git-signature img {
+  width: 20px;
+  translate: 8px;
+}
+
 @keyframes anim {
   from {
     background-color: var(--bg-wht-1);
@@ -359,6 +379,10 @@ body {
 }
 
 @media (max-width: 500px) {
+  .app {
+    padding: 0;
+  }
+
   .condition--ad {
     flex: 100%;
     padding-block: 2em;
