@@ -1,6 +1,4 @@
 import { getGeoCoordURL, getGeoCoords } from './fetch'
-import * as fetch from './fetch';
-import * as TEMP from "./temp";
 import * as DOMupdate from './DOMupdate';
 import * as SUGGESTION from './autoSuggestion'
 
@@ -13,7 +11,6 @@ const getInputValue = function (params) {
 const updateInputValue = function (val) {
     inputField.value = val;
 }
-
 
 const handleInput = async function (e) {
     DOMupdate.removeAnimCls()

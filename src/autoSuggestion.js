@@ -36,7 +36,6 @@ const handleSuggestinClickEvent = async function (coords, cityName) {
 
     DOMUPDATE.updateMainData(forcast.locations, forcast.forcast, forcast.unit, cityName)
     DOMUPDATE.triggerTempDetailAnim()
-    INPUT.updateInputValue('')
     removeBackDropNSuggeestions()
 }
 
@@ -44,15 +43,12 @@ const createSuggestionEl = function name(val, geoSuggestion) {
     let suggestion = document.createElement('div');
     suggestion.classList.add('suggestion-el')
     let location = document.createElement('div');
-    let locationId = `country${geoSuggestion.lat + geoSuggestion.lon}`
-    location.setAttribute('id', locationId)
-
     location.classList.add('location-name')
     location.innerHTML = '<strong>' + geoSuggestion.name.substr(0, val.length) + '</strong>';
     location.innerHTML += geoSuggestion.name.substr(val.length);
 
-    location.addEventListener('click', (e) => {
-        let locationName = removeHtmlTags(e.target.innerHTML)
+    suggestion.addEventListener('click', (e) => {
+        let locationName = geoSuggestion.name;
         INPUT.updateInputValue(locationName)
         let coords = {
             lat: geoSuggestion.lat,
@@ -71,7 +67,6 @@ const createSuggestionEl = function name(val, geoSuggestion) {
 
 
 const inputAutoComplete = async function (val, suggestionsArr) {
-
     for (let i = 0; i < suggestionsArr.length; i++) {
         if (suggestionsArr[i].name.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
             createSuggestionEl(val, suggestionsArr[i])
@@ -98,7 +93,6 @@ const removeBackDropNSuggeestions = function () {
 }
 
 backDrop.addEventListener('click', (removeBackDropNSuggeestions))
-
 
 //
 
