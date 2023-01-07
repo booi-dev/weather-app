@@ -17,8 +17,6 @@
   --bg-wht-1: #ffffff62;
   --bg-wht-2: #ffffff27;
 
-  --bg-grn-1: #2ed12e6c;
-
   --fs-xlarge: 2.6em;
   --fs-xlarge: 2.3em;
   --fs-large: 1.8em;
@@ -44,14 +42,12 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  /* z-index: 2; */
 }
 
 .app {
   padding: 1em;
   margin-inline: 0.5em;
   border-radius: var(--br-radius);
-  /* background-color: var(--main-1); */
 }
 
 .site-title-container {

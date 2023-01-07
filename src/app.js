@@ -19,24 +19,18 @@ function app() {
 
     const clientLocation = async function () {
         let unit = TEMP.getUnit();
-
         let clientGeo = await getClientLocation;
         let coords = {
             lat: clientGeo.coords.latitude,
             lon: clientGeo.coords.longitude
         }
-
         let forcast = await fetch.getWeather(coords, unit)
         DOMupdate.updateMainData(forcast.locations, forcast.forcast, forcast.unit, forcast.forcast.name)
     }
 
     clientLocation()
 
-    //
-
     INPUT.setInputEventListener()
-
-
 }
 
 export default app;

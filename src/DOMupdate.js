@@ -61,21 +61,19 @@ function updateMainData(location, forcast, unit, cityName = "--") {
     feelsLike.innerText = `feels: ${forcast.main.feels_like} ${unitSymbol}`;
 
     // conditionEl.classList.add((forcast.weather.main).toLowerCase())
-    updateConditionCls(`condition--ad ${(forcast.weather.main).toLowerCase()}`)
     condition.innerText = forcast.weather.main;
     conditionDesc.innerText = forcast.weather.description;
     humidity.innerText = `${forcast.main.humidity}`;
     windspeed.innerText = `${forcast.windspeed}`;
+
+    updateConditionCls(`condition--ad ${(forcast.weather.main).toLowerCase()}`)
 }
 
 const convertTempDOM = function () {
     let temps = TEMP.getTemp()
     let unit = TEMP.getUnit()
-
-    // console.log(temps)
     let convertedMainTemp;
     let convertedFeelsTemp;
-
     setUnitSym(unit)
 
     if (unit === "metric") {
@@ -89,7 +87,6 @@ const convertTempDOM = function () {
     mainTemp.innerText = `${convertedMainTemp}${unitSymbol}`;
     feelsLike.innerText = `feels: ${convertedFeelsTemp} ${unitSymbol}`;
 
-    // console.log({ convertedMainTemp, convertedFeelsTemp })
     TEMP.updateTemp({
         mainTemp: convertedMainTemp,
         feelsTemp: convertedFeelsTemp
