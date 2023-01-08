@@ -213,8 +213,7 @@ a {
 
 .back-drop.show {
   position: fixed;
-  /* background-color: rgba(255, 255, 255, 0); */
-  background-color: rgba(193, 29, 29, 0.673);
+  background-color: rgba(255, 255, 255, 0);
   top: 0;
   bottom: 0;
   width: 100%;
