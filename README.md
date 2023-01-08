@@ -1,6 +1,4 @@
 
-view live demo
-https://booi-dev.github.io/weather-app/
 A SIMPLE WEATHER APP. <br>
 Use open weather API. <br>
 Real time weather & time update according to input coordinates. <br>
