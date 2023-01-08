@@ -11,12 +11,16 @@ import './loadingAnim.css'
 
 function app() {
 
+    // CHECK INTERNET STATUS AND INFORM
+
     let netStatus = document.querySelector('.net-status')
 
     if (!navigator.onLine) {
         console.log("offline")
         netStatus.innerText = 'slow/no internet'
     }
+
+    // GET CLIENT LOCATION AND FETCH WEATHER DATA
 
     const clientLocation = async function () {
         let unit = TEMP.getUnit();
@@ -34,16 +38,10 @@ function app() {
     // INPUT HANDLING
 
     INPUT.setInputEventListener()
+    INPUT.changeInputPosition()
 
     var mediaQuery = window.matchMedia("(max-width: 500px)")
-
-    mediaQuery.addEventListener('change', () => {
-        if (mediaQuery.matches) {
-            INPUT.moveInputToBottom()
-        } else {
-            INPUT.moveInputToMiddle()
-        }
-    })
+    mediaQuery.addEventListener('change', INPUT.changeInputPosition)
 }
 
 export default app;

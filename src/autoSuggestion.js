@@ -97,12 +97,8 @@ backDrop.addEventListener('click', () => {
     removeBackDropNSuggeestions()
 })
 
-//
-
 export {
     inputAutoComplete,
-
-
     showBackDrop,
     closeBackDrop,
 }

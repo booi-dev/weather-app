@@ -42,10 +42,18 @@ const moveInputToBottom = function () {
     additionalDataEl.after(form)
 }
 
+const changeInputPosition = function () {
+    var mediaQuery = window.matchMedia("(max-width: 500px)")
+    if (mediaQuery.matches) {
+        moveInputToBottom()
+    } else {
+        moveInputToMiddle()
+    }
+}
+
 export {
     setInputEventListener,
     getInputValue,
     updateInputValue,
-    moveInputToMiddle,
-    moveInputToBottom
+    changeInputPosition
 }
