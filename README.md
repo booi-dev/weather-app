@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 view live demo
 https://booi-dev.github.io/weather-app/
 A SIMPLE WEATHER APP. <br>
@@ -12,3 +13,6 @@ Dynamic img for different weather conditions. <br>
 
 View live demo site:- <br>
 https://booi-dev.github.io/weather-app/
+=======
+
+>>>>>>> 1cb7e5dda0409120eb1fa659ab25a9ce7141181b
