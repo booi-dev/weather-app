@@ -132,8 +132,10 @@ body {
 }
 
 .condition--ad {
+  background-color: transparent;
   background-position: center;
   background-size: cover;
+  border: 2px solid var(--bg-wht-1);
   color: #e2e2e2;
   text-shadow: 2px 2px 4px #000000;
 }

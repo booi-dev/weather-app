@@ -1,51 +1,51 @@
-.condition--ad.thunderstorm {
+.body-thunderstorm {
   background-image: url("./img/weather/thunderstorm.jpg");
 }
-.condition--ad.drizzle {
+.body-drizzle {
   background-image: url("./img/weather/drizzle.jpg");
 }
-.condition--ad.rain {
+.body-rain {
   background-image: url("./img/weather/rain.jpg");
 }
-.condition--ad.clear {
+.body-clear {
   background-image: url("./img/weather/cleary-sky.jpg");
 }
-.condition--ad.snow {
+.body-snow {
   background-image: url("./img/weather/snow.jpg");
 }
-.condition--ad.mist {
+.body-mist {
   background-image: url("./img/weather/mist.jpg");
 }
-.condition--ad.smoke {
+.body-smoke {
   background-image: url("./img/weather/smoke.jpg");
 }
-.condition--ad.haze {
+.body-haze {
   background-image: url("./img/weather/haze.jpg");
 }
-.condition--ad.dust {
+.body-dust {
   background-image: url("./img/weather/dust.jpg");
 }
-.condition--ad.fog {
+.body-fog {
   background-image: url("./img/weather/fog.jpg");
 }
-.condition--ad.sand {
+.body-sand {
   background-image: url("./img/weather/sand.jpg");
 }
-.condition--ad.dust {
+.body-dust {
   background-image: url("./img/weather/dust.jpg");
 }
-.condition--ad.ash {
+.body-ash {
   background-image: url("./img/weather/ash.jpg");
 }
-.condition--ad.squall {
+.body-squall {
   background-image: url("./img/weather/squall.jpg");
 }
-.condition--ad.tornado {
+.body-tornado {
   background-image: url("./img/weather/tornado.jpg");
 }
-.condition--ad.ash {
+.body-ash {
   background-image: url("./img/weather/ash.jpg");
 }
-.condition--ad.clouds {
+.body-clouds {
   background-image: url("./img/weather/clouds.jpg");
 }

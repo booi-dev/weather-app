@@ -5,7 +5,7 @@ import * as TEMP from "./temp";
 import * as DOMupdate from './DOMupdate'
 // import './input'
 import './app.css'
-import './img.css'
+// import './img.css'
 import './icons.css'
 import './loadingAnim.css'
 
@@ -19,6 +19,11 @@ function app() {
         console.log("offline")
         netStatus.innerText = 'slow/no internet'
     }
+
+    // APP BG IMG 
+
+    DOMupdate.updateBgImg()
+
 
     // GET CLIENT LOCATION AND FETCH WEATHER DATA
 

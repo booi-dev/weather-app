@@ -1,5 +1,6 @@
 import { format, getDate } from 'date-fns'
 import * as TEMP from './temp'
+import "./bgimgs.css";
 
 let date = new Date()
 let currentDay = format(date, 'EEEE')
@@ -20,7 +21,7 @@ let mainCityName = document.querySelector('.city-name--main')
 let mainTemp = document.querySelector('.temp--main')
 let feelsLike = document.querySelector('.feels-like--main')
 
-let conditionEl = document.querySelector('.condition--ad')
+// let conditionEl = document.querySelector('.condition--ad')
 let condition = document.querySelector('.condition.data--ad')
 let conditionDesc = document.querySelector('.condition-desc.desc--ad')
 let humidity = document.querySelector('.humidity.data--ad')
@@ -38,7 +39,14 @@ const setUnitSym = function (unit) {
     }
 }
 
+const updateBgImg = function (cls) {
+    let body = document.querySelector('body')
+    body.className = `body-${cls}`
+}
+
 function updateMainData(location, forcast, unit, cityName = "--") {
+
+    updateBgImg((forcast.weather.main).toLowerCase())
 
     // timezone is in second. to milliseconds, multiple by 1000
     let time = UTC + (forcast.timezone * 1000);
@@ -64,7 +72,7 @@ function updateMainData(location, forcast, unit, cityName = "--") {
     humidity.innerText = `${forcast.main.humidity}`;
     windspeed.innerText = `${forcast.windspeed}`;
 
-    conditionEl.className = `condition--ad ${(forcast.weather.main).toLowerCase()}`;
+    // conditionEl.className = `condition--ad ${(forcast.weather.main).toLowerCase()}`;
 }
 
 const convertTempDOM = function () {
@@ -92,6 +100,7 @@ const convertTempDOM = function () {
 }
 
 export {
+    updateBgImg,
     updateMainData,
     convertTempDOM
 }
