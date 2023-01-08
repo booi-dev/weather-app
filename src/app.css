@@ -87,6 +87,7 @@ body {
 
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .location--main {
@@ -187,6 +188,7 @@ body {
 
 .additional-data .lable--ad {
   font-size: var(--fs-medium);
+  opacity: 0.7;
 }
 
 .additional-data .data--ad {
@@ -221,16 +223,17 @@ body {
 }
 
 .net-status {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
+  align-items: flex-end;
   justify-content: center;
-  justify-items: center;
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  translate: -50% -50%;
+  /* translate: 50% -50%; */
   color: #f6460b;
-  font-size: var(--fs-xmedium);
-  z-index: 3;
+  font-size: var(--fs-medium);
 }
 
 a {

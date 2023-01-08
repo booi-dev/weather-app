@@ -30,13 +30,12 @@ const removeSuggestionEl = function (val) {
 }
 
 const handleSuggestinClickEvent = async function (coords, cityName) {
+    removeBackDropNSuggeestions()
     TEMP.updateCoords(coords)
-
     let unit = TEMP.getUnit();
     let forcast = await FETCH.getWeather(coords, unit)
     DOMUPDATE.updateMainData(forcast.locations, forcast.forcast, forcast.unit, cityName)
     LOADING.triggerTempDetailAnim()
-    removeBackDropNSuggeestions()
     INPUT.updateInputValue('')
 }
 

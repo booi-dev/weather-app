@@ -18,13 +18,13 @@
   bottom: 0;
   border: none;
   margin: auto;
-  width: 20px;
+  width: 22px;
   color: var(--bg-blk-2);
   background-color: transparent;
   border-top: 1px solid var(--bg-blk-2);
   border-left: 1px solid var(--bg-blk-2);
   border-radius: 55% 0 0 0;
-  padding: 1px 2px;
+  padding: 2.5px;
 }
 
 .switch-btn:hover {

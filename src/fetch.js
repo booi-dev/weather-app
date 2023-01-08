@@ -30,7 +30,6 @@ const getGeoCoords = async function (url) {
 const getForcast = async function (url) {
     let forcast = {}
     try {
-        LOADING.startLoadingAnim()
         const response = await fetch(url);
         const weatherData = await response.json();
         forcast.name = weatherData.name;
@@ -41,12 +40,10 @@ const getForcast = async function (url) {
         forcast.timezone = weatherData.timezone;
         // console.log(weatherData)
         // console.log(forcast)
-
         TEMP.updateTemp({
             mainTemp: weatherData.main.temp,
             feelsTemp: weatherData.main.feels_like
         })
-        LOADING.stopLoadingAnim()
         return forcast;
     } catch (error) {
         console.log(error)
@@ -63,13 +60,12 @@ const reverseGeoCoding = async function (url) {
 
 const getWeather = async function (coords, unit) {
     // console.log("getting weather")
-
+    LOADING.startLoadingAnim()
     let reverseGeoURl = getReverseGeoCodingURL(coords)
     let locations = await reverseGeoCoding(reverseGeoURl)
-
     let forcastURL = getForcastURL(coords, unit)
     let forcast = await getForcast(forcastURL)
-
+    LOADING.stopLoadingAnim()
     return { locations, forcast, unit };
 }
 
