@@ -94,7 +94,7 @@ const removeBackDropNSuggeestions = function () {
 backDrop.addEventListener('click', () => {
     let inputValue = INPUT.getInputValue()
     INPUT.updateInputValue(inputValue.slice(0, -1))
-    removeBackDropNSuggeestions
+    removeBackDropNSuggeestions()
 })
 
 //

@@ -1,0 +1,45 @@
+.form {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.input-el {
+  display: flex;
+  justify-content: center;
+  gap: 0.4em;
+  margin-top: 1em;
+  background-color: var(--bg-wht-1);
+  padding: 1em;
+  border-radius: var(--br-radius);
+}
+
+.input-field {
+  width: 100%;
+  height: 2em;
+  border: none;
+  border-radius: var(--br-radius);
+
+  font-family: inherit;
+  font-size: var(--fs-medium);
+  text-align: center;
+
+  transition: background-color, color;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+
+  border-radius: var(--br-radius);
+  background-color: var(--bg-wht-1);
+  outline: none;
+}
+
+.input-field:hover,
+.input-field:focus {
+  border: 1px solid var(--bg-blk-2);
+}
+
+@media (max-width: 500px) {
+  .input-el {
+    margin-top: 0.5em;
+  }
+}

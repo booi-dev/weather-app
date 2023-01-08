@@ -1,6 +1,7 @@
 import { getGeoCoordURL, getGeoCoords } from './fetch'
 import * as SUGGESTION from './autoSuggestion'
 import * as LOADING from './loadingAnim'
+import './input.css'
 
 const inputField = document.querySelector('.input-field')
 
@@ -24,11 +25,27 @@ const handleInput = async function (e) {
 
 const setInputEventListener = function () {
     inputField.addEventListener('input', handleInput)
+}
 
+
+// drag down input in mobile mode
+
+const moveInputToMiddle = function () {
+    const additionalDataEl = document.querySelector('.additional-data')
+    const form = document.querySelector('.form')
+    additionalDataEl.before(form)
+}
+
+const moveInputToBottom = function () {
+    const additionalDataEl = document.querySelector('.additional-data')
+    const form = document.querySelector('.form')
+    additionalDataEl.after(form)
 }
 
 export {
     setInputEventListener,
     getInputValue,
-    updateInputValue
+    updateInputValue,
+    moveInputToMiddle,
+    moveInputToBottom
 }

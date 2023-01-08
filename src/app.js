@@ -3,7 +3,7 @@ import * as fetch from './fetch'
 import * as INPUT from './input'
 import * as TEMP from "./temp";
 import * as DOMupdate from './DOMupdate'
-import './input'
+// import './input'
 import './app.css'
 import './img.css'
 import './icons.css'
@@ -31,7 +31,19 @@ function app() {
 
     clientLocation()
 
+    // INPUT HANDLING
+
     INPUT.setInputEventListener()
+
+    var mediaQuery = window.matchMedia("(max-width: 500px)")
+
+    mediaQuery.addEventListener('change', () => {
+        if (mediaQuery.matches) {
+            INPUT.moveInputToBottom()
+        } else {
+            INPUT.moveInputToMiddle()
+        }
+    })
 }
 
 export default app;
