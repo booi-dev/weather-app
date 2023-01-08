@@ -101,34 +101,6 @@ body {
   opacity: 0.8;
 }
 
-.geo-suggestions {
-  position: absolute;
-  top: 4em;
-  background-color: var(--main-2);
-  border-radius: var(--br-radius);
-  width: 80%;
-  z-index: 3;
-}
-
-.suggestion-el {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5em 0.5em;
-  margin: 0.4em 0.1em;
-}
-
-.suggestion-el:hover {
-  background-color: var(--bg-blk-2);
-  border-radius: var(--br-radius);
-  color: white;
-}
-
-.state {
-  opacity: 0.6;
-  font-size: 80%;
-}
-
 .additional-data {
   display: flex;
   flex-wrap: wrap;
@@ -209,16 +181,6 @@ a {
   width: 20px;
   translate: 0 2px;
   cursor: pointer;
-}
-
-.back-drop.show {
-  position: fixed;
-  background-color: rgba(255, 255, 255, 0);
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
 }
 
 @media (max-width: 500px) {

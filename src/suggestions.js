@@ -3,6 +3,7 @@ import * as TEMP from './temp'
 import * as LOADING from './loadingAnim'
 import * as FETCH from './fetch';
 import * as DOMUPDATE from './DOMupdate';
+import './suggestions.css'
 
 const geoSuggestionEl = document.querySelector('.geo-suggestions')
 

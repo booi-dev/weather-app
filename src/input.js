@@ -1,5 +1,5 @@
 import { getGeoCoordURL, getGeoCoords } from './fetch'
-import * as SUGGESTION from './autoSuggestion'
+import * as SUGGESTION from './suggestions'
 import * as LOADING from './loadingAnim'
 import './input.css'
 
