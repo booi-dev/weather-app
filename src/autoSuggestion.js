@@ -89,11 +89,13 @@ const closeBackDrop = function () {
 const removeBackDropNSuggeestions = function () {
     clearSuggestions()
     closeBackDrop()
-    let inputValue = INPUT.getInputValue()
-    INPUT.updateInputValue(inputValue.slice(0, -1))
 }
 
-backDrop.addEventListener('click', (removeBackDropNSuggeestions))
+backDrop.addEventListener('click', () => {
+    let inputValue = INPUT.getInputValue()
+    INPUT.updateInputValue(inputValue.slice(0, -1))
+    removeBackDropNSuggeestions
+})
 
 //
 
