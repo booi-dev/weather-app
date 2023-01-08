@@ -1,5 +1,6 @@
 import * as TEMP from './temp'
 import * as LOADING from './loadingAnim'
+import * as _suggestion from './suggestions'
 
 const API_KEY = 'c613a13b184358c24caf13e21b9f03f0'
 
@@ -19,8 +20,10 @@ const getReverseGeoCodingURL = function (coords) {
 
 const getGeoCoords = async function (url) {
     try {
+        _suggestion.startFetchingAnim()
         const response = await fetch(url);
         const cityData = await response.json();
+        _suggestion.stopFetchingAnim()
         return cityData;
     } catch (error) {
         console.log(error)
@@ -38,8 +41,6 @@ const getForcast = async function (url) {
         forcast.windspeed = weatherData.wind.speed;
         forcast.date = weatherData.dt;
         forcast.timezone = weatherData.timezone;
-        // console.log(weatherData)
-        // console.log(forcast)
         TEMP.updateTemp({
             mainTemp: weatherData.main.temp,
             feelsTemp: weatherData.main.feels_like
@@ -59,7 +60,6 @@ const reverseGeoCoding = async function (url) {
 
 
 const getWeather = async function (coords, unit) {
-    // console.log("getting weather")
     LOADING.startLoadingAnim()
     let reverseGeoURl = getReverseGeoCodingURL(coords)
     let locations = await reverseGeoCoding(reverseGeoURl)

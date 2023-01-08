@@ -27,7 +27,6 @@ const setInputEventListener = function () {
     inputField.addEventListener('input', handleInput)
 }
 
-
 // drag down input in mobile mode
 
 const moveInputToMiddle = function () {

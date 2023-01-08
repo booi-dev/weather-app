@@ -98,8 +98,22 @@ backDrop.addEventListener('click', () => {
     removeBackDropNSuggeestions()
 })
 
+// SUGGESTIONS LOADING ANIMATION
+
+const suggestionAnimEl = document.querySelector('.fetch-loading')
+
+const startFetchingAnim = function () {
+    suggestionAnimEl.classList.add('anim')
+}
+
+const stopFetchingAnim = function () {
+    suggestionAnimEl.classList.remove('anim')
+}
+
 export {
     inputAutoComplete,
     showBackDrop,
     closeBackDrop,
+    startFetchingAnim,
+    stopFetchingAnim
 }
