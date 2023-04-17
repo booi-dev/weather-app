@@ -1,9 +1,12 @@
 
-A SIMPLE WEATHER APP. <br>
-Use open weather API. <br>
-Real time weather & time update according to input coordinates. <br>
-Loading animation: #1 for temperature. #2 while fetching cities. <br>
-Dynamic img for different weather conditions. <br>
+<h2> A SIMPLE WEATHER APP. </h2>
+<h3> create using openweather api </h3>
+
+<h3> Features: </h3>
+<h4> 1. Real time weather & time update according to user coordinates. </h4>
+<h4> 2. Search city, with deboucing. </h4>
+<h4> 3. Loading animation. </h4>
+<h4> 4. Dynamic img for different weather conditions. </h4>
 
 ![Screenshot (131)](https://user-images.githubusercontent.com/56810550/211185842-af4825a1-a854-400d-842e-a830f729b74c.png)
 
