@@ -4,7 +4,7 @@
 
 <h3> Features: </h3>
 <h4> 1. Real time weather & time update according to user coordinates. </h4>
-<h4> 2. Search city, with deboucing. </h4>
+<h4> 2. Search city feature. </h4>
 <h4> 3. Loading animation. </h4>
 <h4> 4. Dynamic img for different weather conditions. </h4>
 
